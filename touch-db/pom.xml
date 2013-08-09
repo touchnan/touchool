@@ -106,5 +106,11 @@
 			<artifactId>druid</artifactId>
 			<scope>test</scope>
 		</dependency>
+    
+    <dependency>
+        <groupId>org.nutz</groupId>
+        <artifactId>nutz</artifactId>
+        <version>1.b.48</version>
+    </dependency>
 	</dependencies>
 </project>
