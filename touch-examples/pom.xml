@@ -15,10 +15,6 @@
   <name>touch's examples</name>
   <description>examples of touch.</description>
 
-  <properties>
-    <version.touch>0.0.1-SNAPSHOT</version.touch>
-  </properties>
-
   <build>
     <plugins>
       <plugin>
@@ -42,13 +38,13 @@
     <dependency>
       <groupId>cn.touch</groupId>
       <artifactId>touch-heart</artifactId>
-      <version>${version.touch}</version>
+      <version>${version.parent}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>cn.touch</groupId>
       <artifactId>touch-db</artifactId>
-      <version>${version.touch}</version>
+      <version>${version.parent}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
