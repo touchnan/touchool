@@ -118,7 +118,7 @@
 	
 		<!-- Logging -->
 		<version.logback>1.0.9</version.logback>
-		<version.slf4j>1.6.1</version.slf4j>
+		<version.slf4j>1.7.5</version.slf4j>
 		<version.log4j>1.2.16</version.log4j>
 		<version.logging>1.1.2</version.logging>
 
