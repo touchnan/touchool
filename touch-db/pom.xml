@@ -1,87 +1,104 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>cn.touch</groupId>
-        <artifactId>touch-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-        <relativePath>touch-parent/pom.xml</relativePath>
-    </parent>
+  <parent>
+    <groupId>cn.touch</groupId>
+    <artifactId>touch-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>touch-parent/pom.xml</relativePath>
+  </parent>
 
-	<artifactId>touch-db</artifactId>
-	<packaging>jar</packaging>
+  <artifactId>touch-db</artifactId>
+  <packaging>jar</packaging>
 
-	<name>touch's db</name>
-	<description>touch's db base code.</description>
+  <name>touch's db</name>
+  <description>touch's db base code.</description>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>src/main/nutz</source>
-								<source>src/main/module</source>
-							</sources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<includes>
-						<include>**/*Test.java</include>
-					</includes>
-					<excludes>
-						<exclude>**/TestAll.java</exclude>
-						<exclude>**/AllWith*.java</exclude>
-						<exclude>**/*Case.java</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/main/nutz</source>
+                <source>src/main/module</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <includes>
+            <include>**/*Test.java</include>
+          </includes>
+          <excludes>
+            <exclude>**/TestAll.java</exclude>
+            <exclude>**/AllWith*.java</exclude>
+            <exclude>**/*Case.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
-	<dependencies>
+  <dependencies>
     <dependency>
       <groupId>commons-dbutils</groupId>
       <artifactId>commons-dbutils</artifactId>
       <scope>compile</scope>
     </dependency>
-      
+
     <dependency>
       <groupId>cn.touch</groupId>
       <artifactId>touch-heart</artifactId>
       <version>${version.parent}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
       <scope>provided</scope>
     </dependency>
-    
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>provided</scope>
-		</dependency>
 
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<scope>provided</scope>
-		</dependency>
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <scope>provided</scope>
+    </dependency>
 
-		<dependency>
-			<groupId>com.jolbox</groupId>
-			<artifactId>bonecp</artifactId>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
+    <dependency>
+      <groupId>com.jolbox</groupId>
+      <artifactId>bonecp</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>c3p0</groupId>
+      <artifactId>c3p0</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 </project>

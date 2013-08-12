@@ -14,7 +14,6 @@ import org.nutz.log.Log;
 import org.nutz.log.Logs;
 
 import cn.touch.kit.MethodResult;
-import cn.touch.kit.encrypt.EncodeUtils;
 
 /**
  * Sep 6, 2012

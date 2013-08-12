@@ -175,9 +175,9 @@ public class DbTemplate implements Db {
         Object object = null;
         try {
             if (params == null) {
-                object = queryRunner.query(sql, new ScalarHandler(columnName));
+                object = queryRunner.query(sql, new ScalarHandler<Object>(columnName));
             } else {
-                object = queryRunner.query(sql, new ScalarHandler(columnName), params);
+                object = queryRunner.query(sql, new ScalarHandler<Object>(columnName), params);
             }
         } catch (SQLException e) {
             throw Lang.wrapThrow(e, "Error occured while attempting to query data");
@@ -194,9 +194,9 @@ public class DbTemplate implements Db {
         Object object = null;
         try {
             if (params == null) {
-                object = queryRunner.query(sql, new ScalarHandler(columnIndex));
+                object = queryRunner.query(sql, new ScalarHandler<Object>(columnIndex));
             } else {
-                object = queryRunner.query(sql, new ScalarHandler(columnIndex), params);
+                object = queryRunner.query(sql, new ScalarHandler<Object>(columnIndex), params);
             }
         } catch (SQLException e) {
             throw Lang.wrapThrow(e, "Error occured while attempting to query data");

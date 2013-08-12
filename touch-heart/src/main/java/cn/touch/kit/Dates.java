@@ -71,7 +71,8 @@ public class Dates {
      */
     public static Date firstDayOnMonth(Calendar calendar) {
         clean_H_M_S_MS_OfCalendar(calendar);
-        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
+        calendar.set(Calendar.DAY_OF_MONTH,
+                calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
         return calendar.getTime();
     }
 
@@ -116,7 +117,8 @@ public class Dates {
      */
     public static Date lastDayOnMonth(Calendar calendar) {
         clean_H_M_S_MS_OfCalendar(calendar);
-        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+        calendar.set(Calendar.DAY_OF_MONTH,
+                calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
         return calendar.getTime();
     }
 
@@ -199,7 +201,8 @@ public class Dates {
             try {
                 return new SimpleDateFormat(patten).parse(dateStr);
             } catch (ParseException e) {
-                Logs.getLog(Dates.class).error(dateStr + " parse2: " + patten, e);
+                Logs.getLog(Dates.class).error(dateStr + " parse2: " + patten,
+                        e);
             }
         }
         return null;
@@ -210,5 +213,35 @@ public class Dates {
             return new SimpleDateFormat(patten).format(date);
         }
         return "";
+    }
+
+    /***************************************************/
+    
+    public static final String DATE_YYYY_MM = "yyyy-MM";
+    public static final String DATE_YYYY_MM_DD = "yyyy-MM-dd";
+    public static final String DATETIME_YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";    
+
+    public static Date parse4DATETIME_YYYY_MM_DD_HH_MM_SS(String dateStr) {
+        return Dates.parse(dateStr, DATETIME_YYYY_MM_DD_HH_MM_SS);
+    }
+
+    public static Date parse4DATE_YYYY_MM_DD(String dateStr) {
+        return parse(dateStr, DATE_YYYY_MM_DD);
+    }
+
+    public static Date parse4DATE_YYYY_MM(String dateStr) {
+        return parse(dateStr, DATE_YYYY_MM);
+    }
+
+    public static String format2DATETIME_YYYY_MM_DD_HH_MM_SS(Date date) {
+        return format(date, DATETIME_YYYY_MM_DD_HH_MM_SS);
+    }
+
+    public static String format2DATE_YYYY_MM_DD(Date date) {
+        return format(date, DATE_YYYY_MM_DD);
+    }
+
+    public static String format2DATE_YYYY_MM(Date date) {
+        return format(date, DATE_YYYY_MM);
     }
 }
