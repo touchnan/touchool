@@ -14,6 +14,7 @@ import org.nutz.lang.Strings;
 
 import cn.touch.db.util.Utils;
 import cn.touch.kit.Dates;
+import cn.touch.util.Constants;
 
 /**
  * Aug 3, 2012
@@ -156,11 +157,11 @@ public class FlexiRule {
         switch (this.op) {
         case nu:
         case nn:
-            sql.append(" ").append(this.getField()).append(" ")
+            sql.append(Constants.WHITE_SPACE).append(this.getField()).append(Constants.WHITE_SPACE)
                     .append(this.getOp());
             return;
         default:
-            sql.append(" ").append(this.getField()).append(" ")
+            sql.append(Constants.WHITE_SPACE).append(this.getField()).append(Constants.WHITE_SPACE)
                     .append(this.getOp()).append(" ?");
             params.add(this.getValue());
         }

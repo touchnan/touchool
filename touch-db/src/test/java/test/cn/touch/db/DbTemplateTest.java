@@ -9,7 +9,7 @@ import java.beans.PropertyVetoException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import cn.touch.db.DbTemplate;
+import cn.touch.db.DbRunner;
 
 import com.jolbox.bonecp.BoneCPDataSource;
 
@@ -53,7 +53,7 @@ public class DbTemplateTest extends DbTest {
         boneCP.setJdbcUrl(jdbcUrl);
         boneCP.setUsername(userName);
         boneCP.setPassword(passwd);
-        DbTemplateTest.db = new DbTemplate(boneCP);
+        DbTemplateTest.db = new DbRunner(boneCP);
         
     }
 

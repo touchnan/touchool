@@ -10,6 +10,8 @@ import java.util.List;
 
 import org.nutz.lang.Lang;
 
+import cn.touch.util.Constants;
+
 /**
  * Aug 3, 2012
  * 
@@ -86,7 +88,7 @@ public class FlexiRuleGroup {
             count = filterGroup(sql, params, count);
         }
 
-        sql.append(")");
+        sql.append(Constants.RIGHT_PARENTHESIS);
     }
 
     /**
@@ -101,7 +103,7 @@ public class FlexiRuleGroup {
         for (Iterator<FlexiRule> iter = this.rules.iterator(); iter.hasNext(); count++) {
             FlexiRule rule = iter.next();
             if (count != 0) {
-                sql.append(" ").append(this.groupOp);
+                sql.append(Constants.WHITE_SPACE).append(this.groupOp);
             }
             rule.flip().sql(sql, params);
         }

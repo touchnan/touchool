@@ -133,14 +133,14 @@ public class Page {
     /**
      * 取得总记录数, 默认值为-1.
      */
-    public Integer getTotal() {
+    public int getTotal() {
         return total;
     }
 
     /**
      * 设置总记录数.
      */
-    public void setTotal(final Integer totalCount) {
+    public void setTotal(final int totalCount) {
         this.total = totalCount;
     }
 
