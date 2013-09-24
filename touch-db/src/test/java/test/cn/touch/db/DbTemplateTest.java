@@ -23,14 +23,21 @@ public class DbTemplateTest extends DbTest {
     @BeforeClass
     public static void beforeClass() throws PropertyVetoException {
         
+        try {
+            Class.forName("org.hsqldb.jdbcDriver");
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } 
+        
         String driver = "org.hsqldb.jdbcDriver";
-        String jdbcUrl = "jdbc:hsqldb:mem:touchdb";
+        String jdbcUrl = "jdbc:hsqldb:mem:mydb";
         //String jdbcUrl = "jdbc:hsqldb:E:/env/tomcat637\data3.4.2/database/confluencedb"
         
 //        String driver = "com.mysql.jdbc.Driver";
 //        String jdbcUrl = "jdbc:mysql://localhost:3306/mydb";
                 
-        String userName = "root";
+        String userName = "sa";
         String passwd = "";
         
 //        BasicDataSource bds = new BasicDataSource();
@@ -56,6 +63,7 @@ public class DbTemplateTest extends DbTest {
         DbTemplateTest.db = new DbRunner(boneCP);
         
     }
+    
 
     /*
      * (non-Javadoc)
@@ -64,24 +72,38 @@ public class DbTemplateTest extends DbTest {
      */
     @Override
     protected void init() {
+        
+//        db.update("DROP TABLE IF EXISTS REAL_PORT");
+//        String createTable="CREATE MEMORY  TABLE REAL_PORT(" +
+//                "PORT_ID INTEGER NOT NULL PRIMARY KEY," +
+//                "NE_ID INTEGER NOT NULL," +
+//                "PORT_NO VARCHAR(10)," +
+//                "TAKE_STATE VARCHAR(10)," +
+//                "RACK VARCHAR(10)," +
+//                "COLLECTDATE VARCHAR(10)," +
+//                "EXPLAINDATE VARCHAR(10)" +
+//                ")";
+//        db.update(createTable);
+        
         //db.update("DROP  TABLE IF EXISTS `tab_u`");
         //db.update("CREATE MEMORY TABLE `tab_u` (`id` INT NOT NULL ,`name` VARCHAR(45) NOT NULL, `state` INT(8),PRIMARY KEY (`id`) )");
+//        db.update("drop table customer");
+//        db.update("create table customer(id integer not null primary key,firstname VARCHAR(45),lastname VARCHAR(45) )");
         
-        db.update("CREATE SCHEMA PUBLIC AUTHORIZATION DBA");
+//        db.update("CREATE SCHEMA PUBLIC AUTHORIZATION DBA");
+//        
+//        db.update("CREATE USER root PASSWORD ''");
+//        db.update("GRANT DBA TO root");
+//        db.update("SET WRITE_DELAY 10");
+//        db.update("SET SCHEMA PUBLIC");
         
-        db.update("CREATE USER root PASSWORD ''");
-        db.update("GRANT DBA TO root");
-        db.update("SET WRITE_DELAY 10");
-        db.update("SET SCHEMA PUBLIC");
         
-        
-//        db.update("DROP  TABLE tab_u");
-        db.update("CREATE MEMORY TABLE tab_u(id BIGINT NOT NULL PRIMARY KEY,name VARCHAR(45),state BIGINT)");
+        db.update("DROP TABLE IF EXISTS tab_u");
+        db.update("CREATE MEMORY TABLE tab_u(id INTEGER NOT NULL PRIMARY KEY,name VARCHAR(45),state INTEGER)");
     }
 
     @Test
     public void insert() {
-         init();
          db.update("INSERT INTO tab_u (id, name, state) VALUES (1, '红', 0)");
     }
 }

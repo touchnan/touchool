@@ -73,8 +73,8 @@ public abstract class DbTest {
 
         @Override
         public Boolean call() throws Exception {
-            //db.update("INSERT INTO `tab_u` (`id`, `name`, `state`) VALUES (?, '红', 0)", id);
-            db.update("INSERT INTO tab_u (id, name, state) VALUES (?, 红, 0)", id);
+//            db.update("INSERT INTO `tab_u` (`id`, `name`, `state`) VALUES (?, '红', 0)", id);
+            db.update("INSERT INTO tab_u (id, name, state) VALUES (?, '红', 0)", id);
             return true;
         }
 
