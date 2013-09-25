@@ -33,7 +33,7 @@ public class HttpTest {
     @Test
     public void getNormal() {
         System.out.println(conn.get("http://www.baidu.com"));
-//        System.out.println(conn.get("http://localhost/static/jquery/1.7/jquery-1.7.min.js?cmd=2","&a=1&b=2"));
+//        System.out.println(conn.get("http://localhost/static/jquery/1.7/jquery-1.7.min.js?cmd=2","a=1&b=2"));
         
 //        List<NameValuePair> nvps = new ArrayList<NameValuePair>();
 //        nvps.add(new BasicNameValuePair("role_ids", "1"));
