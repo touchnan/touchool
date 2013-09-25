@@ -78,6 +78,10 @@ public class FlexiRuleGroup {
      * @param params
      */
     private void filter(StringBuffer sql, List<Object> params) {
+        if (rules == null && groups == null) {
+            sql.append(" 1=1");
+            return;
+        }
         sql.append(" (");
         int count = 0;
         if (rules != null) {
