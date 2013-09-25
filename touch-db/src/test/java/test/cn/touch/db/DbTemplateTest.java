@@ -5,11 +5,17 @@
 package test.cn.touch.db;
 
 import java.beans.PropertyVetoException;
+import java.util.List;
+import java.util.Map;
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import cn.touch.db.DbRunner;
+import cn.touch.db.query.filter.FlexiRule;
+import cn.touch.db.query.filter.FlexiRule.FilterSopt;
+import cn.touch.db.query.filter.FlexiRuleGroup;
 
 import com.jolbox.bonecp.BoneCPDataSource;
 
@@ -104,6 +110,23 @@ public class DbTemplateTest extends DbTest {
 
     @Test
     public void insert() {
-         db.update("INSERT INTO tab_u (id, name, state) VALUES (1, '红', 0)");
+        int count = 10;
+        Object[][] params = new Object[count][2];
+        for (int i=0; i<count; ) {
+            params[i][1] = i%2==0? "红":"蓝";
+            params[i][0] = ++i;
+        }
+        
+        db.batchUpdate("INSERT INTO tab_u (id, name, state) VALUES (?, ?, 0)", params);
+//         db.update("INSERT INTO tab_u (id, name, state) VALUES (1, '红', 0)");
+    }
+    
+    @Test
+    public void find() {
+        insert();
+        List<Map<String, Object>> a = db.find("select * from tab_u WHERE 1=1", new FlexiRuleGroup().addRule(new FlexiRule().rule(FilterSopt.cn,"S_name","红")));
+//        List<Map<String, Object>> a= db.find("select * from tab_u WHERE 1=1 AND ( name LIKE ?)", new Object[]{"%红%"});
+        Assert.assertEquals(5L,Long.valueOf(a.size()).longValue());
+        
     }
 }

@@ -253,7 +253,7 @@ public class DbRunner implements Db {
         StringBuffer sbf = new StringBuffer(sql);
         List<Object> params = new ArrayList<Object>();
         ruleGroup.filterAnd(sbf, params);
-        return this.find(sbf.toString(), params);
+        return this.find(sbf.toString(), params.toArray());
     }
 
     /**
@@ -265,7 +265,7 @@ public class DbRunner implements Db {
         StringBuffer sbf = new StringBuffer(sql);
         List<Object> params = new ArrayList<Object>();
         ruleGroup.filterAnd(sbf, params);
-        return this.find(sbf.toString(), convert, params);
+        return this.find(sbf.toString(), convert, params.toArray());
     }
 
     /**
@@ -277,7 +277,7 @@ public class DbRunner implements Db {
         StringBuffer sbf = new StringBuffer(sql);
         List<Object> params = new ArrayList<Object>();
         ruleGroup.filterAnd(sbf, params);
-        return this.find(entityClass, sbf.toString(), params);
+        return this.find(entityClass, sbf.toString(), params.toArray());
     }
 
     /**
@@ -289,6 +289,6 @@ public class DbRunner implements Db {
         StringBuffer sbf = new StringBuffer(sql);
         List<Object> params = new ArrayList<Object>();
         ruleGroup.filterAnd(sbf, params);
-        return this.find(entityClass, sbf.toString(), convert, params);
+        return this.find(entityClass, sbf.toString(), convert, params.toArray());
     }
 }
