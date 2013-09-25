@@ -40,6 +40,8 @@ import org.apache.http.util.EntityUtils;
 import org.nutz.lang.Strings;
 import org.nutz.log.Logs;
 
+import cn.touch.util.Constants;
+
 /**
  * Aug 21, 2012
  * 
@@ -158,14 +160,14 @@ public class HttpConnector {
 
     public String get(String url, String queryStr) {
         if (!Strings.isBlank(queryStr)) {
-            url = url + (url.indexOf("?") > -1 ? "&" : "?") + queryStr;
+            url = url + (url.indexOf(Constants.QUESTION_MARK) != (-1) ? Constants.AND : Constants.QUESTION_MARK) + queryStr;
         }
         return get(url);
     }
 
     public byte[] getBytes(String url, String queryStr) {
         if (!Strings.isBlank(queryStr)) {
-            url = url + (url.indexOf("?") > -1 ? "&" : "?") + queryStr;
+            url = url + (url.indexOf(Constants.QUESTION_MARK) != (-1) ? Constants.AND : Constants.QUESTION_MARK) + queryStr;
         }
         return getBytes(url);
     }
