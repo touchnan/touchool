@@ -15,7 +15,7 @@ import java.util.List;
 public class Page {
 
     protected int rp = 20;// 每页多少条纪录
-    protected int page = 0;// 页码(当前页)
+    protected int page = 1;// 页码(当前页)
     protected int total = 0;// 纪录总条数
 
     protected boolean autoCount = true;

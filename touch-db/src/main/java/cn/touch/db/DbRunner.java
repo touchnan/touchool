@@ -193,8 +193,8 @@ public class DbRunner implements Db {
         PageSQLQuery pq = this.sqlParser.createPageSQLQuery(sqlFlow.page(page));
         page.setRows(this.find(pq.getPageSql(), pq.getPageParams()));
         if (page.isAutoCount()) {
-            page.setTotal((Integer) this.findBy(pq.getCountSql(), 1,
-                    pq.getPageParams()));
+            page.setTotal(((Long) this.findBy(pq.getCountSql(), 1,
+                    pq.getCountParams())).intValue());
         }
         return page;
     }
@@ -208,8 +208,8 @@ public class DbRunner implements Db {
         PageSQLQuery pq = this.sqlParser.createPageSQLQuery(sqlFlow.page(page));
         page.setRows(this.find(pq.getPageSql(), convert, pq.getPageParams()));
         if (page.isAutoCount()) {
-            page.setTotal((Integer) this.findBy(pq.getCountSql(), 1,
-                    pq.getPageParams()));
+            page.setTotal(((Long) this.findBy(pq.getCountSql(), 1,
+                    pq.getCountParams())).intValue());
         }
         return page;
     }
@@ -223,8 +223,8 @@ public class DbRunner implements Db {
         PageSQLQuery pq = this.sqlParser.createPageSQLQuery(sqlFlow.page(page));
         page.setRows(this.find(entityClass, pq.getPageSql(), pq.getPageParams()));
         if (page.isAutoCount()) {
-            page.setTotal((Integer) this.findBy(pq.getCountSql(), 1,
-                    pq.getPageParams()));
+            page.setTotal(((Long) this.findBy(pq.getCountSql(), 1,
+                    pq.getCountParams())).intValue());
         }
         return page;
     }
@@ -239,8 +239,8 @@ public class DbRunner implements Db {
         page.setRows(this.find(entityClass, pq.getPageSql(), convert,
                 pq.getPageParams()));
         if (page.isAutoCount()) {
-            page.setTotal((Integer) this.findBy(pq.getCountSql(), 1,
-                    pq.getPageParams()));
+            page.setTotal(((Long) this.findBy(pq.getCountSql(), 1,
+                    pq.getCountParams())).intValue());
         }
         return page;
     }

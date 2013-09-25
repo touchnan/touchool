@@ -13,6 +13,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import cn.touch.db.DbRunner;
+import cn.touch.db.page.Pagination;
+import cn.touch.db.page.parser.MysqlSQLParser;
+import cn.touch.db.page.parser.SQLFlow;
 import cn.touch.db.query.filter.FlexiRule;
 import cn.touch.db.query.filter.FlexiRule.FilterSopt;
 import cn.touch.db.query.filter.FlexiRuleGroup;
@@ -26,6 +29,8 @@ import com.jolbox.bonecp.BoneCPDataSource;
  * 
  */
 public class DbTemplateTest extends DbTest {
+    
+    static int rowCount = 10; 
     @BeforeClass
     public static void beforeClass() throws PropertyVetoException {
         
@@ -66,7 +71,7 @@ public class DbTemplateTest extends DbTest {
         boneCP.setJdbcUrl(jdbcUrl);
         boneCP.setUsername(userName);
         boneCP.setPassword(passwd);
-        DbTemplateTest.db = new DbRunner(boneCP);
+        DbTemplateTest.db = new DbRunner(boneCP, new MysqlSQLParser());
         
     }
     
@@ -110,9 +115,9 @@ public class DbTemplateTest extends DbTest {
 
     @Test
     public void insert() {
-        int count = 10;
-        Object[][] params = new Object[count][2];
-        for (int i=0; i<count; ) {
+        
+        Object[][] params = new Object[rowCount][2];
+        for (int i=0; i<rowCount; ) {
             params[i][1] = i%2==0? "红":"蓝";
             params[i][0] = ++i;
         }
@@ -126,7 +131,22 @@ public class DbTemplateTest extends DbTest {
         insert();
         List<Map<String, Object>> a = db.find("select * from tab_u WHERE 1=1", new FlexiRuleGroup().addRule(new FlexiRule().rule(FilterSopt.cn,"S_name","红")));
 //        List<Map<String, Object>> a= db.find("select * from tab_u WHERE 1=1 AND ( name LIKE ?)", new Object[]{"%红%"});
-        Assert.assertEquals(5L,Long.valueOf(a.size()).longValue());
+        Assert.assertEquals(rowCount/2,Long.valueOf(a.size()).longValue());
+        for (Map<String, Object> m : a) {
+            Assert.assertEquals("普通查询","红", m.get("name"));
+        }
+    }
+    
+    @Test
+    public void findPage() {
+        insert();
         
+        Pagination page = new Pagination(Integer.MAX_VALUE);
+        page.setRuleGroup(new FlexiRuleGroup().addRule(new FlexiRule().rule(FilterSopt.cn,"S_name","红")));
+        Pagination a = db.findPage(new SQLFlow().select(" * ").from(" tab_u"),page);
+        Assert.assertEquals(rowCount/2,Long.valueOf(a.getRows().size()).longValue());
+        for (Object m : a.getRows()) {
+            Assert.assertEquals("分页查询","红", ((Map<?, ?>)m).get("name"));
+        }
     }
 }
