@@ -179,7 +179,9 @@
     <version.json-smart>1.1.1</version.json-smart>
     <version.rome>1.0.0</version.rome>
 
-    <version.mail>1.4.5</version.mail>
+    <version.mail1.4>1.4.7</version.mail1.4>
+    <version.mail1.5>1.5.2</version.mail1.5>
+   
     <version.quartz>1.8.6</version.quartz>
     <version.activemq>5.7.0</version.activemq>
     <version.joda-time>2.2</version.joda-time>
@@ -1318,9 +1320,17 @@
       <dependency>
         <groupId>javax.mail</groupId>
         <artifactId>mail</artifactId>
-        <version>${version.mail}</version>
+        <version>${version.mail1.4}</version>
         <scope>provided</scope>
       </dependency>
+      
+      <dependency>
+        <groupId>com.sun.mail</groupId>
+        <artifactId>javax.mail</artifactId>
+        <version>${version.mail1.5}</version>
+        <scope>provided</scope>
+      </dependency>  
+          
       <dependency>
         <groupId>org.quartz-scheduler</groupId>
         <artifactId>quartz</artifactId>
