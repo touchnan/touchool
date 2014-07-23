@@ -1329,7 +1329,7 @@
         <artifactId>javax.mail</artifactId>
         <version>${version.mail1.5}</version>
         <scope>provided</scope>
-      </dependency>  
+      </dependency>
           
       <dependency>
         <groupId>org.quartz-scheduler</groupId>
