@@ -1,6 +1,8 @@
 *.class
 *.jar
 *.bak
+.classpath
+.project
 .svn/
 bin/
 target/
