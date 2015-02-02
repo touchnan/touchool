@@ -5,8 +5,10 @@ package cn.touch.mapper.fastjson;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 
 import org.springframework.http.HttpOutputMessage;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 
 import com.alibaba.fastjson.JSON;
@@ -28,7 +30,14 @@ public class MappingFastJsonHttpMessageConverter extends FastJsonHttpMessageConv
     @Override
     protected void writeInternal(Object obj, HttpOutputMessage outputMessage) throws IOException,
             HttpMessageNotWritableException {
-        JSON.writeJSONStringTo(obj, new OutputStreamWriter(outputMessage.getBody()), getFeatures());
+        Charset charset = getEncoding(outputMessage.getHeaders().getContentType());
+        JSON.writeJSONStringTo(obj, new OutputStreamWriter(outputMessage.getBody(), charset), getFeatures());
     }
 
+    private Charset getEncoding(MediaType contentType) {
+        if (contentType != null && contentType.getCharSet() != null) {
+            return contentType.getCharSet();
+        }
+        return super.getCharset();
+    }    
 }
