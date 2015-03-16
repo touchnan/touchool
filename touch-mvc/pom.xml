@@ -43,10 +43,12 @@
 		<!-- Logging -->
 		<logback.version>1.1.2</logback.version>
 		<slf4j.version>1.7.7</slf4j.version>
-    <log4j-over-slf4j.version>1.7.7</log4j-over-slf4j.version>
+    	<log4j-over-slf4j.version>1.7.7</log4j-over-slf4j.version>
 
 		<!-- Test -->
 		<junit.version>4.11</junit.version>
+		
+		<h2.version>1.4.182</h2.version>
 
 	</properties>
 	
@@ -107,12 +109,12 @@
 			<version>${logback.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>log4j-over-slf4j</artifactId>
-      <version>${log4j-over-slf4j.version}</version>
-      <scope>runtime</scope>
-    </dependency>    
+	    <dependency>
+	      <groupId>org.slf4j</groupId>
+	      <artifactId>log4j-over-slf4j</artifactId>
+	      <version>${log4j-over-slf4j.version}</version>
+	      <scope>runtime</scope>
+	    </dependency>    
 
 
 		<!-- Hibernate -->
@@ -192,6 +194,13 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+		
+	    <dependency>
+	      <groupId>com.h2database</groupId>
+	      <artifactId>h2</artifactId>
+	      <version>${h2.version}</version>
+	      <scope>test</scope>
+	    </dependency>		
 
 	</dependencies>	
 </project>

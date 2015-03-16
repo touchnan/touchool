@@ -4,10 +4,13 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome</title>
+		<title>欢迎页面</title>
 	</head> 
 	<body>
-		<c:url value="/showMessage.html" var="messageUrl" />
-		<a href="${messageUrl}">Click to enter</a>
+		<c:url value="/site" var="siteUrl" />
+		<a href="${siteUrl}">Click to enter site</a>
+		
+		<hr>
+		<a href="<c:url value='/manage'/>">Click to 后台管理页面</a>
 	</body>
 </html>

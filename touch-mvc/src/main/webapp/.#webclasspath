@@ -1,5 +1,5 @@
-E:\env\sts-bundle\sts-3.6.3.RELEASE\workspace\touch-mvc\target\classes
-E:\env\sts-bundle\sts-3.6.3.RELEASE\workspace\touch-mvc\target\test-classes
+E:\code-core\javaworkspace\touch-online\touchool\touch-mvc\target\classes
+E:\code-core\javaworkspace\touch-online\touchool\touch-mvc\target\test-classes
 E:\env\maven-dependencies\org\springframework\spring-context-support\4.1.2.RELEASE\spring-context-support-4.1.2.RELEASE.jar
 E:\env\maven-dependencies\org\springframework\spring-beans\4.1.2.RELEASE\spring-beans-4.1.2.RELEASE.jar
 E:\env\maven-dependencies\org\springframework\spring-context\4.1.2.RELEASE\spring-context-4.1.2.RELEASE.jar
@@ -31,3 +31,5 @@ E:\env\maven-dependencies\com\alibaba\fastjson\1.2.1\fastjson-1.2.1.jar
 E:\env\maven-dependencies\org\apache\commons\commons-lang3\3.1\commons-lang3-3.1.jar
 E:\env\maven-dependencies\commons-codec\commons-codec\1.9\commons-codec-1.9.jar
 E:\env\maven-dependencies\org\springframework\spring-test\4.1.2.RELEASE\spring-test-4.1.2.RELEASE.jar
+E:\env\maven-dependencies\junit\junit\4.11\junit-4.11.jar
+E:\env\maven-dependencies\com\h2database\h2\1.4.182\h2-1.4.182.jar

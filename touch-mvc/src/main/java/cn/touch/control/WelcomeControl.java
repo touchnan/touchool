@@ -20,11 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class WelcomeControl {
     
-    @RequestMapping("${web.view.index}")
-    public String index() {
-        return "index";
-    }
-    
     @RequestMapping(value="${authspace}${authclogin}",method = RequestMethod.GET)
     public String login() {
         Subject subject = SecurityUtils.getSubject();

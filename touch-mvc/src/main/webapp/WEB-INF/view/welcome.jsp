@@ -17,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="<c:url value='/static/img/logo20.png'/>" class="hidden-xs"/>
+            <a class="navbar-brand" href="<c:url value='/' />"> <img alt="Charisma Logo" src="<c:url value='/static/img/logo20.png'/>" class="hidden-xs"/>
                 <span>Charisma</span></a>
 
             <!-- user dropdown starts -->
