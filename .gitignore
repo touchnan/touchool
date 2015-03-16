@@ -6,4 +6,5 @@
 .svn/
 bin/
 target/
+work/
 .settings/
