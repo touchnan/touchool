@@ -20,7 +20,7 @@
 		<property name="filterChainDefinitions">
 			<value>
 				/static/** = anon
-				${authspace}${authclogin} = authc
+				<!-- ${authspace}${authclogin} = authc -->
 				${authspace}${authclogout} = logout
 				${authspace}/** = user
 		 	</value>
