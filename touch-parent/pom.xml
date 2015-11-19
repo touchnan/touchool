@@ -84,8 +84,8 @@
 	<log4j.version>1.2.17</log4j.version>
 
     <!-- Basic Web dependencies -->
-    <javaee-web.versoin>7.0</javaee-web.versoin>
-    <jstl.versoin>1.2</jstl.versoin>
+    <javaee-web.version>7.0</javaee-web.version>
+    <jstl.version>1.2</jstl.version>
     <commons-fileupload.version>1.3.1</commons-fileupload.version>
 
     <!-- Cache -->
@@ -94,6 +94,10 @@
 	<!-- security  -->
 	<bcprov.version>1.51</bcprov.version>
 	<shiro.version>1.2.3</shiro.version>
+	
+    <!-- JSR -->
+    <!-- JSR 330 Standard Annotations -->
+    <javax-inject.version>1</javax-inject.version>	
 	
     <!-- Spring -->
     <spring-framework.version>4.2.2.RELEASE</spring-framework.version>
@@ -484,14 +488,14 @@
      <dependency>
           <groupId>javax</groupId>
           <artifactId>javaee-web-api</artifactId>
-          <version>${javaee-web.versoin}</version>
+          <version>${javaee-web.version}</version>
           <scope>${scope.provided}</scope>
       </dependency>
       
        <dependency>
             <groupId>javax.servlet.jsp.jstl</groupId>
             <artifactId>jstl-api</artifactId>
-            <version>${jstl.versoin}</version>
+            <version>${jstl.version}</version>
             <scope>${scope.provided}</scope>
             <exclusions>
                 <exclusion>
@@ -507,7 +511,7 @@
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jstl-impl</artifactId>
-            <version>${jstl.versoin}</version>
+            <version>${jstl.version}</version>
             <scope>${scope.provided}</scope>
             <exclusions>
                 <exclusion>
@@ -557,6 +561,14 @@
 			<scope>${scope.provided}</scope>
 		</dependency>
 
+      <!-- JSR -->
+      <dependency>
+        <!-- JSR 330 Standard Annotations -->
+        <groupId>javax.inject</groupId>
+        <artifactId>javax.inject</artifactId>
+        <version>${javax-inject.version}</version>
+        <scope>${scope.provided}</scope>
+      </dependency>
 	
     <!-- Spring -->
      <dependency>

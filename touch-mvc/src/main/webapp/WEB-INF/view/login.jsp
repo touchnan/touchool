@@ -21,7 +21,7 @@
 					            <div class="alert alert-info">
 
 												<c:choose>
-											      <c:when test="${!empty info }"><font color="red">info</font></c:when>
+											      <c:when test="${!empty info }"><font color="red">${info}</font></c:when>
 											      <c:otherwise>请输入用户名和密码</c:otherwise>
 												</c:choose>					               
 													 <!-- 		             

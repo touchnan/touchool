@@ -29,8 +29,8 @@
 						</goals> -->
 						<configuration>
 							<sources>
-								<source>src/main/click</source>
-								<source>src/main/sling</source>
+								<!-- <source>src/main/click</source>
+								<source>src/main/sling</source> -->
 							</sources>
 						</configuration>
 					</execution>
@@ -134,12 +134,24 @@
 			<scope>${scope.provided}</scope>
 		</dependency>
 	
+      <!-- JSR -->
+      <!-- <dependency>
+        <groupId>javax.inject</groupId>
+        <artifactId>javax.inject</artifactId>
+        <scope>${scope.provided}</scope>
+      </dependency> -->
+	
     <!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			 <scope>${scope.provided}</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <scope>${scope.provided}</scope>
+        </dependency>		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
