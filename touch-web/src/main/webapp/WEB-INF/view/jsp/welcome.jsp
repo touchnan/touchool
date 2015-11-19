@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/view/inc/inc.jsp"%>
+<%@ include file="/WEB-INF/view/jsp/inc/inc.jsp"%>
 <html>
   <head>
-  <%@ include file="/WEB-INF/view/inc/head.jsp" %>
+  <%@ include file="/WEB-INF/view/jsp/inc/head.jsp" %>
   </head> 
   <body>
     
@@ -657,7 +657,7 @@
 
 </div>
 
-<%@ include file="/WEB-INF/view/inc/external.jsp" %>
+<%@ include file="/WEB-INF/view/jsp/inc/external.jsp" %>
 
   </body>
 </html>

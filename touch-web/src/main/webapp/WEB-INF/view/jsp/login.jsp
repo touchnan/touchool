@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/view/inc/inc.jsp"%>
+<%@ include file="/WEB-INF/view/jsp/inc/inc.jsp"%>
 <html>
 	<head>
-	<%@ include file="/WEB-INF/view/inc/head.jsp" %>
+	<%@ include file="/WEB-INF/view/jsp/inc/head.jsp" %>
 	</head> 
 	<body>
 		
@@ -21,7 +21,7 @@
 					            <div class="alert alert-info">
 
 												<c:choose>
-											      <c:when test="${!empty info }"><font color="red">info</font></c:when>
+											      <c:when test="${!empty info }"><font color="red">${info}</font></c:when>
 											      <c:otherwise>请输入用户名和密码</c:otherwise>
 												</c:choose>					               
 													 <!-- 		             

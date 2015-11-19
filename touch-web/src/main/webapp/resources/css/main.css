@@ -1,0 +1,100 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 26, 2014, 3:21:17 PM
+    Author     : touchnan
+*/
+
+
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    font-family: 'Helvetica Neue',Arial,sans-serif;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    background: none repeat scroll 0 0 #C1DAD6;
+    color: #FFFFFF;
+    font-family: 'Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode',Arial,sans-serif;
+    font-size: 13px;
+    width:100%;
+    height:100%;
+    line-height: 1.7em;
+}
+h1, h2, h3, p, ul, ol, pre, dl {
+    margin-bottom: 1em;
+}
+h1, h2, h3 {
+    font-weight: bold;
+}
+h1 {
+    font-size: 32px;
+    line-height: 1.1em;
+}
+h2 {
+    font-size: 24px;
+    line-height: 1.1em;
+}
+ul, ol {
+    margin-left: 1.5em;
+}
+a, a code {
+    color: #FFBB44;
+    text-decoration: none;
+}
+a:hover, a:hover code {
+    color: #44BBFF;
+}
+a:active, a:active code {
+    background: none repeat scroll 0 0 black;
+    color: #11FFBB;
+}	
+#example {
+    bottom: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;		
+    top: 5.5em;
+    position:relative;
+    margin:0 auto;
+    width: 90%;	
+}
+
+#bar .button {
+    background-color: #666666;
+    border-radius: 8px 8px 8px 8px;
+    color: #FFFFFF;
+    padding: 6px;
+    position: relative;
+    z-index: 99999 !important;
+    top:3em;
+}
+#bar .button:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#bar {
+    position:fixed;
+    z-index: 9;
+    right: 1em;
+}
+
+li {
+    list-style-type: none;
+}
+button {
+/*    background-color: #000000;*/
+/*    color: #FFFFFF;*/
+    cursor: pointer;
+    width:120px;
+}

@@ -26,6 +26,7 @@ public class TestSpring {
 	public void t() {
 //	    IUserService serv = context.getBean(IUserService.class);
 //		System.out.println(serv.validate());
+		System.out.println(context);
 	}
 
 }

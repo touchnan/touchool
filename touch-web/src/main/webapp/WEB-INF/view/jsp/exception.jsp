@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>桐乡一中高三(5)班通讯录</title>
+        <title>School班通讯录</title>
     </head>
     <body>
         <h1>误入施工地~~~,请联系包头工,电话随便呼:110, 119, 120</h1>

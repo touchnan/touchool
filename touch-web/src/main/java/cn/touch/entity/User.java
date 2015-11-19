@@ -5,9 +5,9 @@
  */
 package cn.touch.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -47,7 +47,8 @@ public class User extends BaseEntity {
     //@Where(clause=("state<>-1"))
     @OrderBy("sort DESC, id ASC")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<UserProperty> props = new LinkedHashSet<UserProperty>();
+//    private Set<UserProperty> props = new LinkedHashSet<UserProperty>();
+    private List<UserProperty> props = new ArrayList<UserProperty>();
 
     public String getLoginName() {
         return loginName;
@@ -73,22 +74,36 @@ public class User extends BaseEntity {
         this.type = type;
     }
 
-    public Set<UserProperty> getProps() {
-        return props;
-    }
-
-    public void setProps(Set<UserProperty> props) {
-        this.props = props;
-    }
-
+//    public Set<UserProperty> getProps() {
+//        return props;
+//    }
+//
+//    public void setProps(Set<UserProperty> props) {
+//        this.props = props;
+//    }
+    
     /**
+	 * @return the props
+	 */
+	public List<UserProperty> getProps() {
+		return props;
+	}
+
+	/**
+	 * @param props the props to set
+	 */
+	public void setProps(List<UserProperty> props) {
+		this.props = props;
+	}
+
+	/**
      * @return the updateDate
      */
     public Date getUpdateDate() {
         return updateDate;
     }
 
-    /**
+	/**
      * @param updateDate the updateDate to set
      */
     public void setUpdateDate(Date updateDate) {

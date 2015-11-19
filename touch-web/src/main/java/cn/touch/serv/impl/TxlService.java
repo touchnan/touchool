@@ -10,10 +10,6 @@ import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
-
-import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.util.IOUtils;
@@ -22,11 +18,11 @@ import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.hibernate.Hibernate;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.InvalidTimeoutException;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +30,9 @@ import cn.touch.db.ITxlDao;
 import cn.touch.entity.User;
 import cn.touch.entity.UserProperty;
 import cn.touch.security.crypto.Encoder;
+import cn.touch.security.shiro.ITouchSubjectDao;
+import cn.touch.security.shiro.TouchPrincipal;
+import cn.touch.security.shiro.TouchUsernamePasswordToken;
 import cn.touch.serv.ITxlService;
 import cn.touch.util.ExportUtil;
 
@@ -43,9 +42,9 @@ import cn.touch.util.ExportUtil;
  */
 @Service
 @Transactional(readOnly = true)
-public class TxlService implements ITxlService {
+public class TxlService implements ITxlService,ITouchSubjectDao {
 
-    @Inject()
+	@Autowired()
     private ITxlDao txlDao;
 
     @Autowired()
@@ -191,7 +190,9 @@ public class TxlService implements ITxlService {
 
     @Override
     public User findUser(Long id) {
-        return txlDao.find(id);
+    	 User u = txlDao.find(id);
+    	 Hibernate.initialize(u);
+         return u;
     }
 
     /*
@@ -228,7 +229,7 @@ public class TxlService implements ITxlService {
             for (int i = 0, s = us.size(); i < s; i++) {
                 XSSFRow bodyRow = sheet.createRow(1 + i);
                 User u = us.get(i);
-                Set<UserProperty> ups = u.getProps();
+                List<UserProperty> ups = u.getProps();
                 for (int j = 0, sx = labels.size(); j < sx; j++) {
                     cell = bodyRow.createCell(j);
                     cell.setCellStyle(bodyStyle);
@@ -260,7 +261,7 @@ public class TxlService implements ITxlService {
      * @param string
      * @return
      */
-    private UserProperty find(Set<UserProperty> ups, String title) {
+    private UserProperty find(List<UserProperty> ups, String title) {
         if (StringUtils.isNotBlank(title) && ups != null) {
             for (UserProperty up : ups) {
                 if (StringUtils.equals(up.getTitle(), title)) {
@@ -270,4 +271,22 @@ public class TxlService implements ITxlService {
         }
         return null;
     }
+
+	/* (non-Javadoc)
+	 * @see cn.touch.security.shiro.ITouchSubjectDao#getAuthorizationInfo(cn.touch.security.shiro.TouchPrincipal)
+	 */
+	@Override
+	public SimpleAuthorizationInfo getAuthorizationInfo(TouchPrincipal principal) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see cn.touch.security.shiro.ITouchSubjectDao#getAuthorizationInfo(cn.touch.security.shiro.TouchUsernamePasswordToken)
+	 */
+	@Override
+	public TouchPrincipal getAuthorizationInfo(TouchUsernamePasswordToken userToken) {
+		User u = txlDao.findByLoginName(userToken.getUsername());
+		return new TouchPrincipal(u);
+	}
 }

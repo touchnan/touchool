@@ -9,16 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import javax.inject.Inject;
-
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import cn.touch.db.ITxlDao;
@@ -32,7 +30,7 @@ import cn.touch.entity.UserProperty;
 @Repository
 public class TxlHibernateDao implements ITxlDao {
 
-    @Inject
+    @Autowired
     private SessionFactory sessionFactory;
 
     @SuppressWarnings("unchecked")

@@ -7,6 +7,7 @@ import java.beans.PropertyEditorSupport;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import cn.touch.security.shiro.TouchUsernamePasswordToken;
 
 /**
  * Jan 6, 2015
@@ -31,27 +34,39 @@ public class WelcomeController {
         //Principal principal = (Principal)subject.getPrincipal();
         
         Object principal = (Object)subject.getPrincipal();
-        if (principal!=null){//已经登录
-            return "redirect:/index";
+        if (principal!=null && subject.isAuthenticated()){//已经登录
+            //return "redirect:/index";
+        	return "redirect:/txl";
         }
         //未登录
         return "login";
     }
     
     @RequestMapping(value="${authspace}${authclogin}",method = RequestMethod.POST)
-    public String login(@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String username,Model model) {
+    public String login(@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String username,@RequestParam(FormAuthenticationFilter.DEFAULT_PASSWORD_PARAM) String password,Model model) {
         Subject subject = SecurityUtils.getSubject();
         //Principal principal = (Principal)subject.getPrincipal();
         
         Object principal = (Object)subject.getPrincipal();
-        if (principal!=null){//已经登录
-            return "redirect:/index";
+        if (principal!=null && subject.isAuthenticated()){//已经登录
+            //return "redirect:/index";
+        	return "redirect:/txl";
         }
-        //登录失败
-        model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
-        model.addAttribute("info", username);
-        //纪录失败次数,限制登录等
-        return "login";
+        
+        try {
+        	TouchUsernamePasswordToken token = new TouchUsernamePasswordToken(username,password,false);
+        	subject.login(token);
+        	//WebUtils.getAndClearSavedRequest(request);
+        	//return "redirect:/index";
+        	return "redirect:/txl";
+        } catch (AuthenticationException e) {
+            //登录失败
+            model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
+            model.addAttribute("info", username);
+            //纪录失败次数,限制登录等
+            return "login";
+        }
+        
     }    
     
     @RequestMapping("${authspace}")
@@ -60,7 +75,7 @@ public class WelcomeController {
         //Principal principal = (Principal)subject.getPrincipal();
         
         Object principal = (Object)subject.getPrincipal();
-        if (principal==null){// 未登录，则跳转到登录页
+        if (principal==null || !subject.isAuthenticated()){// 未登录，则跳转到登录页
             return "redirect:/index";
         }
         

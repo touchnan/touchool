@@ -23,6 +23,8 @@
 				<!-- ${authspace}${authclogin} = authc -->
 				${authspace}${authclogout} = logout
 				${authspace}/** = user
+				/user/** = user
+				/txl/** = user
 		 	</value>
 		</property>
 	</bean>
@@ -34,7 +36,7 @@
 	<!-- <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager" p:globalSessionTimeout="3600000" p:sessionDAO-ref="sessionDAO">  
 	<bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO" p:activeSessionsCacheName="shiro-activeSessionCache" p:cacheManager-ref="shiroCacheManager"/> -->
 	
-	<bean id="touchAuthorizingRealm" class="cn.touch.security.shiro.TouchAuthorizingRealm" c:credentialsMatcher-ref="touchCredentialsMatcher"/>
+	<bean id="touchAuthorizingRealm" class="cn.touch.security.shiro.TouchAuthorizingRealm" c:credentialsMatcher-ref="touchCredentialsMatcher" c:touchSubjectDao-ref="${touchSubjectDao}"/>
 	
 	<bean id="touchCredentialsMatcher" class="cn.touch.security.shiro.TouchCredentialsMatcher">
 <!-- 		<property name="encoders">

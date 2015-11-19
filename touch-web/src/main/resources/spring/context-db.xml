@@ -67,14 +67,14 @@
         </property>
         <property name="packagesToScan">
             <list>
-                <value>cn.touch.zkytxl.entity</value>
+                <value>cn.touch.entity</value>
             </list>
         </property>
         
 <!--        <property name="annotatedClasses">
             <list>
-                <value>cn.touch.zkytxl.entity.User</value>
-                <value>cn.touch.zkytxl.entity.UserProperties</value>
+                <value>cn.touch.entity.User</value>
+                <value>cn.touch.entity.UserProperties</value>
             </list>        
         </property> -->
          

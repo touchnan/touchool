@@ -14,7 +14,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
@@ -24,6 +23,9 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.util.IOUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,6 +38,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import cn.touch.controller.BaseController;
 import cn.touch.entity.User;
 import cn.touch.entity.UserProperty;
+import cn.touch.security.shiro.TouchPrincipal;
 import cn.touch.serv.ITxlService;
 
 /**
@@ -46,7 +49,7 @@ import cn.touch.serv.ITxlService;
 @RequestMapping("/user")
 public class UserController extends BaseController{
     
-    @Inject
+    @Autowired
     private ITxlService txlService;
     
 //    @PostConstruct
@@ -194,56 +197,19 @@ public class UserController extends BaseController{
         return outStrBuf.toString();
     }    
     
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String toLogin(Model model) {
-        model.addAttribute("user", new User());
-        return "user/login";
-    }
-    
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public String logout(HttpSession session, Model model) {
-//        session.removeAttribute(Constants._KEY_VIRTUAL_USER_);
-        session.invalidate();
-        model.addAttribute("user", new User());
-        return "user/login";
-    }
-    
-    @RequestMapping(value = "/auth", method = {RequestMethod.POST})
-    public String auth(@ModelAttribute("user") User user, BindingResult result, HttpSession session, RedirectAttributes redirectAttrs) {
-        //new TypeValidator().validate(p, result);
-
-        if (StringUtils.isBlank(user.getLoginName())
-                || StringUtils.isBlank(user.getLoginName())) {
-            ObjectError e = new ObjectError("empty", "不能为空");
-            result.addError(e);
-        } else {
-            User u = txlService.login(user);
-            if (u != null) {
-//                VirtualUser vu = new VirtualUser();
-//                vu.setId(u.getId());
-//                session.setAttribute(Constants._KEY_VIRTUAL_USER_, vu);
-                return "redirect:/txl";
-            }
-            ObjectError e = new ObjectError("not match", "用户名密码错误");
-            result.addError(e);
-        }
-//        if (result.hasErrors()) {
-        user.setPasswd("");
-        return "user/login";
-//        }
-    }
-    
     @RequestMapping(value = "/user", method = {RequestMethod.GET})
     public String editUser(HttpSession session, Model model) {
-//        VirtualUser vu = getVU(session);
-//        UserDto u = txlService.findUser(vu.getId());
-//        model.addAttribute("user", u);
+    	Subject subject = SecurityUtils.getSubject();
+    	TouchPrincipal principal = (TouchPrincipal)subject.getPrincipal();
+        User u = txlService.findUser((Long)principal.getId());
+        model.addAttribute("user", u);
         return "user/edit";
     }
         
    @RequestMapping(value = "/user", method = {RequestMethod.POST})
     public String saveUser(@ModelAttribute("user") User user, BindingResult result, HttpSession session, RedirectAttributes redirectAttrs) {
        //ValidationUtils.rejectIfEmptyOrWhitespace(result.geR, "userName","required.username", "用户名必须填写");
+	   //new TypeValidator().validate(p, result);
        if (StringUtils.isBlank(user.getLoginName())) {
              ObjectError e = new ObjectError("user.loginName", "登录名不能为空");
              result.addError(e);
@@ -254,8 +220,4 @@ public class UserController extends BaseController{
 //       return "user/edit";
     }    
     
-//    private VirtualUser getVU(HttpSession session) {
-//        VirtualUser vu = (VirtualUser) session.getAttribute(Constants._KEY_VIRTUAL_USER_);
-//        return vu;
-//    }
 }

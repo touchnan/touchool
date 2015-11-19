@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/view/inc/inc.jsp"%>
+<%@ include file="/WEB-INF/view/jsp/inc/inc.jsp"%>
 
 <html>
 	<head>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/view/inc/inc.jsp"%>
+<%@ include file="/WEB-INF/view/jsp/inc/inc.jsp"%>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -16,5 +16,8 @@
 		
 		<hr>
 		<a href="<c:url value='/manage'/>">Click to 后台管理页面</a>
+		
+		<hr>
+		<a href="<c:url value='/txl'/>">Click to 通讯录</a>		
 	</body>
 </html>

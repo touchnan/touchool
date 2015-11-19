@@ -11,7 +11,9 @@ import java.io.Serializable;
  *
  */
 public class ContextEnv implements Serializable {
-    public ContextEnv() {
+	private static final long serialVersionUID = 74180641507869445L;
+
+	public ContextEnv() {
         super();
     }
 }

@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
 
 import cn.touch.security.crypto.Encoder;
@@ -39,7 +38,7 @@ public class TouchCredentialsMatcher implements CredentialsMatcher {
      */
     @Override
     public boolean doCredentialsMatch(AuthenticationToken authToken, AuthenticationInfo info) {
-        UsernamePasswordToken token = (UsernamePasswordToken) authToken;
+    	TouchUsernamePasswordToken token = (TouchUsernamePasswordToken) authToken;
         String passwd = new String(token.getPassword());
         for (Encoder encoder : encoders) {
             if (encoder.canDecode((String) info.getCredentials())) {
