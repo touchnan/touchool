@@ -66,7 +66,7 @@
 		
 		<h2.version>1.4.182</h2.version>
 
-		<javaee-web.versoin>7.0</javaee-web.versoin>
+		<javaee-web.version>7.0</javaee-web.version>
 	</properties>
 	
 	<dependencies>
@@ -84,11 +84,43 @@
 		</dependency>
 		
 		<!-- Other Web dependencies -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
-		</dependency>
+		</dependency> -->
+		
+      <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl-api</artifactId>
+            <version>${jstl.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet.jsp</groupId>
+                    <artifactId>jsp-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jstl-impl</artifactId>
+            <version>${jstl.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.servlet.jsp</groupId>
+                    <artifactId>jsp-api</artifactId>
+                </exclusion>        
+            </exclusions>
+        </dependency>		
+		
 <!-- 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -98,7 +130,7 @@
 	      <dependency>
 	          <groupId>javax</groupId>
 	          <artifactId>javaee-web-api</artifactId>
-	          <version>${javaee-web.versoin}</version>
+	          <version>${javaee-web.version}</version>
 	          <scope>provided</scope>
 	      </dependency>		
 		<dependency>
