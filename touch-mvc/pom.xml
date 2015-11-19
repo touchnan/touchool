@@ -36,21 +36,21 @@
 		
 
 		<!-- Spring -->
-		<spring-framework.version>4.1.2.RELEASE</spring-framework.version>
+		<spring-framework.version>4.2.2.RELEASE</spring-framework.version>
 
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.3.7.Final</hibernate.version>
 		
 		<!-- Mybatis -->
 		<mybatis.version>3.2.8</mybatis.version>
-		<mybatis-spring.version>1.2.2</mybatis-spring.version>
+		<mybatis-spring.version>1.2.3</mybatis-spring.version>
 
 		<!-- security  -->
 		<shiro.version>1.2.3</shiro.version>
 		<bcprov.version>1.51</bcprov.version>
 		
 		<!-- utils -->
-		<fastjson.version>1.2.1</fastjson.version>
+		<fastjson.version>1.2.7</fastjson.version>
 		<commons-lang3.version>3.1</commons-lang3.version>
 		<commons-codec.version>1.9</commons-codec.version>
 		<commons-io.version>2.4</commons-io.version>
@@ -66,6 +66,7 @@
 		
 		<h2.version>1.4.182</h2.version>
 
+		<javaee-web.versoin>7.0</javaee-web.versoin>
 	</properties>
 	
 	<dependencies>
@@ -88,12 +89,18 @@
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
+	      <dependency>
+	          <groupId>javax</groupId>
+	          <artifactId>javaee-web-api</artifactId>
+	          <version>${javaee-web.versoin}</version>
+	          <scope>provided</scope>
+	      </dependency>		
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>

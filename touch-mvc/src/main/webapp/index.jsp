@@ -11,6 +11,10 @@
 		<a href="${siteUrl}">Click to enter site</a>
 		
 		<hr>
+		<a href="<c:url value="/scroll"  />">Scroll</a>
+		
+		
+		<hr>
 		<a href="<c:url value='/manage'/>">Click to 后台管理页面</a>
 	</body>
 </html>

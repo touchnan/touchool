@@ -38,13 +38,13 @@
     <dependency>
       <groupId>cn.touch</groupId>
       <artifactId>touch-heart</artifactId>
-      <version>${version.parent}</version>
+      <version>${parent.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>cn.touch</groupId>
       <artifactId>touch-db</artifactId>
-      <version>${version.parent}</version>
+      <version>${parent.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>

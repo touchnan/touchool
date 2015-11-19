@@ -80,7 +80,8 @@
 
 	<!-- Logging -->
 	<logback.version>1.1.2</logback.version>
-	<slf4j.version>1.7.7</slf4j.version> 
+	<slf4j.version>1.7.7</slf4j.version>
+	<log4j.version>1.2.17</log4j.version>
 
     <!-- Basic Web dependencies -->
     <javaee-web.versoin>7.0</javaee-web.versoin>
@@ -91,8 +92,8 @@
     <version.ehcache>2.6.5</version.ehcache>
     
 	<!-- security  -->
-	<shiro.version>1.2.3</shiro.version>
 	<bcprov.version>1.51</bcprov.version>
+	<shiro.version>1.2.3</shiro.version>
 	
     <!-- Spring -->
     <spring-framework.version>4.2.2.RELEASE</spring-framework.version>
@@ -112,16 +113,28 @@
     <dbutils.version>1.5</dbutils.version>
     <druid.version>1.0.16</druid.version>
     <c3p0.version>0.9.1.2</c3p0.version>
+	<bonecp.version>0.7.1.RELEASE</bonecp.version>    
+    <commons-dbcp.version>1.4</commons-dbcp.version>
 		
     <!-- FILE PATTERN & Template -->
     <poi.version>3.8</poi.version>
     <freemarker.version>2.3.19</freemarker.version>
+    <mail14.version>1.4.7</mail14.version>
+    <mail15.version>1.5.2</mail15.version>    
     
 	<!-- utils -->
+	<jackson.version>2.2.0</jackson.version>
 	<fastjson.version>1.2.7</fastjson.version>
+	<guava.version>14.0.1</guava.version>
+	<cglib.version>2.2</cglib.version>
 	<commons-lang3.version>3.1</commons-lang3.version>
 	<commons-codec.version>1.9</commons-codec.version>
-	<commons-io.version>2.4</commons-io.version> 
+	<commons-io.version>2.4</commons-io.version>
+	
+	<!-- HTTP & HTML -->
+    <httpcomponents.version>4.2.4</httpcomponents.version>
+    <httpasyncclient.version>4.0-beta3</httpasyncclient.version>
+    <jsoup.version>1.7.1</jsoup.version>	
   </properties>
 
 
@@ -432,10 +445,40 @@
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>      
+        <version>${slf4j.version}</version>
+        <scope>${scope.provided}</scope>      
+      </dependency>      
+      <dependency>
+        <groupId>org.slf4j</groupId>
         <artifactId>slf4j-log4j12</artifactId>
         <version>${slf4j.version}</version>
         <scope>${scope.provided}</scope>
       </dependency>
+      <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>${log4j.version}</version>
+        <scope>${scope.provided}</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax.jms</groupId>
+            <artifactId>jms</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.sun.jdmk</groupId>
+            <artifactId>jmxtools</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.sun.jmx</groupId>
+            <artifactId>jmxri</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>      
 
     <!-- Basic Web dependencies -->
      <dependency>
@@ -488,26 +531,32 @@
       </dependency>    
     
 	<!-- security  -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>${bcprov.version}</version>
+            <scope>${scope.provided}</scope>
+        </dependency>
+        	
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-spring</artifactId>
 			<version>${shiro.version}</version>
+			<scope>${scope.provided}</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-web</artifactId>
 			<version>${shiro.version}</version>
+			<scope>${scope.provided}</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-ehcache</artifactId>
 			<version>${shiro.version}</version>
+			<scope>${scope.provided}</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <version>${bcprov.version}</version>
-        </dependency>
+
 	
     <!-- Spring -->
      <dependency>
@@ -744,8 +793,29 @@
         <artifactId>c3p0</artifactId>
         <version>${c3p0.version}</version>
         <scope>${scope.provided}</scope>
-      </dependency>          
-    
+      </dependency>
+      <dependency>
+        <groupId>com.jolbox</groupId>
+        <artifactId>bonecp</artifactId>
+        <version>${bonecp.version}</version>
+        <scope>${scope.provided}</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>      
+      <dependency>
+        <groupId>commons-dbcp</groupId>
+        <artifactId>commons-dbcp</artifactId>
+        <version>${commons-dbcp.version}</version>
+        <scope>${scope.provided}</scope>
+      </dependency>    
 		
     <!-- FILE PATTERN & Template -->
     
@@ -767,7 +837,21 @@
             <artifactId>freemarker</artifactId>
             <version>${freemarker.version}</version>
             <scope>${scope.provided}</scope>
-        </dependency> 
+        </dependency>
+        
+      <dependency>
+        <groupId>javax.mail</groupId>
+        <artifactId>mail</artifactId>
+        <version>${mail14.version}</version>
+        <scope>${scope.provided}</scope>
+      </dependency>
+      
+      <dependency>
+        <groupId>com.sun.mail</groupId>
+        <artifactId>javax.mail</artifactId>
+        <version>${mail15.version}</version>
+        <scope>${scope.provided}</scope>
+      </dependency>        
             
 	<!-- utils -->
 		<dependency>
@@ -776,6 +860,38 @@
 			<version>${fastjson.version}</version>
 			<scope>${scope.provided}</scope>
 		</dependency>
+		<dependency>
+		  <groupId>com.fasterxml.jackson.core</groupId>
+		  <artifactId>jackson-core</artifactId>
+		  <version>${jackson.version}</version>
+		  <scope>${scope.provided}</scope>
+		</dependency>
+		<dependency>
+		  <groupId>com.fasterxml.jackson.core</groupId>
+		  <artifactId>jackson-databind</artifactId>
+		  <version>${jackson.version}</version>
+		  <scope>${scope.provided}</scope>
+		</dependency>
+		<dependency>
+		  <groupId>com.fasterxml.jackson.core</groupId>
+		  <artifactId>jackson-annotations</artifactId>
+		  <version>${jackson.version}</version>
+		  <scope>${scope.provided}</scope>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.google.guava</groupId>
+		  <artifactId>guava</artifactId>
+		  <version>${guava.version}</version>
+		  <scope>${scope.provided}</scope>
+		</dependency>
+		<dependency>
+		  <groupId>cglib</groupId>
+		  <artifactId>cglib-nodep</artifactId>
+		  <version>${cglib.version}</version>
+		  <scope>${scope.provided}</scope>
+		</dependency>	      	
+		
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -802,6 +918,49 @@
 			<scope>${scope.provided}</scope>
 		</dependency>
 	    
+	    
+     <!-- HTTP & HTML -->
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpcore</artifactId>
+        <version>${httpcomponents.version}</version>
+        <scope>${scope.provided}</scope>
+        <exclusions>
+          <!-- <exclusion> <groupId>org.apache.httpcomponents</groupId> <artifactId>httpcore</artifactId> 
+            </exclusion> <exclusion> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
+            </exclusion> -->
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${httpcomponents.version}</version>
+        <scope>${scope.provided}</scope>
+        <exclusions>
+          <!-- <exclusion> <groupId>org.apache.httpcomponents</groupId> <artifactId>httpcore</artifactId> 
+            </exclusion> <exclusion> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
+            </exclusion> -->
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpasyncclient</artifactId>
+        <version>${httpasyncclient.version}</version>
+        <scope>${scope.provided}</scope>
+        <exclusions>
+          <!-- <exclusion> <groupId>org.apache.httpcomponents</groupId> <artifactId>httpcore</artifactId> 
+            </exclusion> <exclusion> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
+            </exclusion> -->
+        </exclusions>
+      </dependency>
+      <dependency>
+        <!-- jsoup HTML parser library @ http://jsoup.org/ -->
+        <groupId>org.jsoup</groupId>
+        <artifactId>jsoup</artifactId>
+        <version>${jsoup.version}</version>
+        <scope>${scope.provided}</scope>
+      </dependency>
+      	    
     </dependencies>
   </dependencyManagement>
 </project>

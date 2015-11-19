@@ -15,12 +15,14 @@
         <webClassPathEntry>E:/env/maven-dependencies/ch/qos/logback/logback-classic/1.1.2/logback-classic-1.1.2.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/ch/qos/logback/logback-core/1.1.2/logback-core-1.1.2.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/com/alibaba/fastjson/1.2.1/fastjson-1.2.1.jar</webClassPathEntry>
+        <webClassPathEntry>E:/env/maven-dependencies/com/h2database/h2/1.4.182/h2-1.4.182.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/commons-codec/commons-codec/1.9/commons-codec-1.9.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/commons-io/commons-io/2.2/commons-io-2.2.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/javax/servlet/jstl/1.2/jstl-1.2.jar</webClassPathEntry>
+        <webClassPathEntry>E:/env/maven-dependencies/junit/junit/4.11/junit-4.11.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/net/sf/ehcache/ehcache-core/2.5.0/ehcache-core-2.5.0.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar</webClassPathEntry>
         <webClassPathEntry>E:/env/maven-dependencies/org/apache/shiro/shiro-core/1.2.3/shiro-core-1.2.3.jar</webClassPathEntry>
