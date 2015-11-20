@@ -1,9 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * test.cn.touch.zkytxl.vo.ImportUsers.java
+ * Jul 27, 2014 
  */
-package cn.touch.controller.site;
+package cn.touch.lab.spring;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,57 +13,57 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import javax.servlet.http.HttpSession;
-
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.util.IOUtils;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.touch.controller.BaseController;
 import cn.touch.entity.User;
 import cn.touch.entity.UserProperty;
-import cn.touch.security.shiro.TouchPrincipal;
 import cn.touch.serv.ITxlService;
 
 /**
- *
- * @author touchnan
+ * Jul 27, 2014
+ * 
+ * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * 
  */
-@Controller
-@RequestMapping("/user")
-public class UserController extends BaseController{
-    
-    @Autowired
-    private ITxlService txlService;
-    
-//    @PostConstruct
-//    public void init() {
-//    	URL url = Thread.currentThread().getContextClassLoader().getResource("aa.xls");
-//        File file = FileUtils.toFile(url);
-//        System.out.println(file.getAbsolutePath());
-//        try {
-//			readExcel(file);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//    }
-    
-    public void readExcel(File file) throws IOException {
+public class ImportUsers {
+
+    private static ApplicationContext cx = new ClassPathXmlApplicationContext("spring/context.xml");
+    protected static ITxlService txlService = (ITxlService) cx.getBean(ITxlService.class);
+    private static String filename = "src/test/resources/aa.xls";
+
+    public static void main(String[] args) {
+        try {
+            initUsers();
+            System.out.println("Data init success.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("人员初始化失败");
+        } finally {
+            System.exit(0);
+        }
+
+    }
+
+    /**
+     * @throws Exception
+     * @throws
+     * 
+     */
+    private static void initUsers() throws Exception {
+        File file = FileUtils.getFile(filename);
+        System.out.println(file.getAbsolutePath());
+        readExcel(file);
+
+    }
+
+    public static void readExcel(File file) throws IOException {
         Set<String> female= new HashSet<String>();
         
         FileInputStream fis = FileUtils.openInputStream(file);
@@ -124,7 +123,7 @@ public class UserController extends BaseController{
         IOUtils.closeQuietly(fis);
     }
 
-    private String getCellValue(Cell cell) throws UnsupportedEncodingException {
+    private static String getCellValue(Cell cell) throws UnsupportedEncodingException {
         String v = "";
         switch (cell.getCellType()) {
         case Cell.CELL_TYPE_NUMERIC:
@@ -144,9 +143,23 @@ public class UserController extends BaseController{
         return full2HalfChange(v.trim().replace(" ", ""));
     }
 
+    // /**
+    // * @param cells
+    // * @param i
+    // * @return
+    // * @throws UnsupportedEncodingException
+    // */
+    // private static String getCell(Cell[] cells, int i) throws UnsupportedEncodingException {
+    // if (i >= cells.length)
+    // return null;
+    // if (Strings.isBlank(cells[i].getContents()))
+    // return "";
+    // return full2HalfChange(cells[i].getContents().trim());
+    // }
+
     // 全角转半角的 转换函数
 
-    public final String full2HalfChange(String QJstr) throws UnsupportedEncodingException {
+    public static final String full2HalfChange(String QJstr) throws UnsupportedEncodingException {
         StringBuffer outStrBuf = new StringBuffer("");
         String Tstr = "";
         byte[] b = null;
@@ -170,29 +183,5 @@ public class UserController extends BaseController{
             }
         } // end for.
         return outStrBuf.toString();
-    }    
-    
-    @RequestMapping(value = "/user", method = {RequestMethod.GET})
-    public String editUser(HttpSession session, Model model) {
-    	Subject subject = SecurityUtils.getSubject();
-    	TouchPrincipal principal = (TouchPrincipal)subject.getPrincipal();
-        User u = txlService.findUser((Long)principal.getId());
-        model.addAttribute("user", u);
-        return "user/edit";
     }
-        
-   @RequestMapping(value = "/user", method = {RequestMethod.POST})
-    public String saveUser(@ModelAttribute("user") User user, BindingResult result, HttpSession session, RedirectAttributes redirectAttrs) {
-       //ValidationUtils.rejectIfEmptyOrWhitespace(result.geR, "userName","required.username", "用户名必须填写");
-	   //new TypeValidator().validate(p, result);
-       if (StringUtils.isBlank(user.getLoginName())) {
-             ObjectError e = new ObjectError("user.loginName", "登录名不能为空");
-             result.addError(e);
-             return "user/edit";
-       }
-       user = txlService.save(user);
-       return "redirect:/txl";
-//       return "user/edit";
-    }    
-    
 }
