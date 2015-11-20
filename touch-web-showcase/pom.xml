@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>cn.touch</groupId>
-        <artifactId>touch-parent</artifactId>
+	<parent>
+		<groupId>cn.touch</groupId>
+		<artifactId>touch-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-        <relativePath>touch-parent/pom.xml</relativePath>
-    </parent>
+		<relativePath>touch-parent/pom.xml</relativePath>
+	</parent>
 
 	<artifactId>touch-web-showcase</artifactId>
 	<packaging>war</packaging>
@@ -18,103 +18,91 @@
 	<build>
 		<plugins>
 			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-surefire-plugin</artifactId>
-			  <configuration>
-			    <includes>
-			      <include>**/*Test.java</include>
-			    </includes>
-			    <excludes>
-			      <exclude>**/TestAll.java</exclude>
-			      <exclude>**/AllWith*.java</exclude>
-			      <exclude>**/*Case.java</exclude>
-			    </excludes>
-			  </configuration>
-			</plugin>			
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/TestAll.java</exclude>
+						<exclude>**/AllWith*.java</exclude>
+						<exclude>**/*Case.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
 	<dependencies>
-<!--     <dependency>
-      <groupId>cn.touch</groupId>
-      <artifactId>touch-db</artifactId>
-      <version>${version.parent}</version>
-      <scope>provided</scope>
-    </dependency> -->
-    	
+		<!-- <dependency> <groupId>cn.touch</groupId> <artifactId>touch-db</artifactId> 
+			<version>${version.parent}</version> <scope>provided</scope> </dependency> -->
+
 		<dependency>
 			<groupId>cn.touch</groupId>
-			<artifactId>touch-frame</artifactId>
+			<artifactId>touch-web</artifactId>
 			<version>${parent.version}</version>
 			<scope>${scope.compile}</scope>
 		</dependency>
-	
-	
-     <!-- Logging -->
-<!--       <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <scope>${scope.compile}</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>      
-        <scope>${scope.compile}</scope>      
-      </dependency>  -->
-      
-    <!-- Basic Web dependencies -->
-     <dependency>
-          <groupId>javax</groupId>
-          <artifactId>javaee-web-api</artifactId>
-          <scope>${scope.provided}</scope>
-      </dependency>
-      
-       <dependency>
-            <groupId>javax.servlet.jsp.jstl</groupId>
-            <artifactId>jstl-api</artifactId>
-            <scope>${scope.compile}</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.servlet.jsp</groupId>
-                    <artifactId>jsp-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.web</groupId>
-            <artifactId>jstl-impl</artifactId>
-            <scope>${scope.compile}</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.servlet.jsp</groupId>
-                    <artifactId>jsp-api</artifactId>
-                </exclusion>        
-            </exclusions>
-        </dependency>
-    
 
-    <!-- Cache -->
-      <dependency>
-        <groupId>net.sf.ehcache</groupId>
-        <artifactId>ehcache-core</artifactId>
-        <scope>${scope.compile}</scope>
-      </dependency>    
-    
-	<!-- security  -->
-       <!--  <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency> -->
-        	
+
+		<!-- Logging -->
+		<!-- <dependency> <groupId>ch.qos.logback</groupId> <artifactId>logback-classic</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> <dependency> <groupId>org.slf4j</groupId> 
+			<artifactId>slf4j-api</artifactId> <scope>${scope.compile}</scope> </dependency> -->
+
+		<!-- Basic Web dependencies -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<scope>${scope.provided}</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
+			<scope>${scope.compile}</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.servlet.jsp</groupId>
+					<artifactId>jsp-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jstl-impl</artifactId>
+			<scope>${scope.compile}</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.servlet.jsp</groupId>
+					<artifactId>jsp-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<!-- Cache -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+
+		<!-- security -->
+		<!-- <dependency> <groupId>org.bouncycastle</groupId> <artifactId>bcprov-jdk15on</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> -->
+
+		<!-- <dependency> <groupId>org.apache.shiro</groupId> <artifactId>shiro-web</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-spring</artifactId>
@@ -122,149 +110,116 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-web</artifactId>
-			<scope>${scope.compile}</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-ehcache</artifactId>
 			<scope>${scope.compile}</scope>
 		</dependency>
-	
-      <!-- JSR -->
-      <!-- <dependency>
-        <groupId>javax.inject</groupId>
-        <artifactId>javax.inject</artifactId>
-        <scope>${scope.compile}</scope>
-      </dependency> -->
-	
-    <!-- Spring -->
+
+
+
+		<!-- JSR -->
+		<!-- <dependency> <groupId>javax.inject</groupId> <artifactId>javax.inject</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> -->
+
+		<!-- Spring -->
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-context-support</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> <dependency> <groupId>org.springframework</groupId> 
+			<artifactId>spring-jdbc</artifactId> <scope>${scope.compile}</scope> </dependency> 
+			<dependency> <groupId>org.springframework</groupId> <artifactId>spring-tx</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			 <scope>${scope.compile}</scope>
+			<artifactId>spring-orm</artifactId>
+			<scope>${scope.compile}</scope>
 		</dependency>
-       <!--  <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency>	
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency> -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			 <scope>compile</scope>
+			<scope>compile</scope>
 		</dependency>
-    
-    <!-- ORM : Mybatis, Hibernate / JPA -->
-    <dependency>
-		<groupId>org.mybatis</groupId>
-		<artifactId>mybatis</artifactId>
-		<scope>${scope.compile}</scope>
-		</dependency>
-	<dependency>
-		<groupId>org.mybatis</groupId>
-		<artifactId>mybatis-spring</artifactId>
-		<scope>${scope.compile}</scope>
-	</dependency>    
-    
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-core</artifactId>
-        <exclusions>
-          <exclusion>
-            <groupId>asm</groupId>
-            <artifactId>asm-attrs</artifactId>
-          </exclusion>
-        </exclusions>
-        <scope>${scope.compile}</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-ehcache</artifactId>
-        <scope>${scope.compile}</scope>
-      </dependency>
-      
-      <!-- <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-validator</artifactId>
-        <scope>${scope.provided}</scope>
-      </dependency> -->
 
-    <!-- Database & JDBC -->
-<!--       <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <scope>${scope.compile}</scope>
-      </dependency> -->
-	    <dependency>
-	      <groupId>com.h2database</groupId>
-	      <artifactId>h2</artifactId>
-	      <scope>${scope.compile}</scope>
-	    </dependency>      
-	      <dependency>
-	        <groupId>c3p0</groupId>
-	        <artifactId>c3p0</artifactId>
-	        <scope>${scope.compile}</scope>
-	      </dependency>          
-    
-		
-    <!-- FILE PATTERN & Template -->
-    
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency> 
-            
-	<!-- utils -->
-<!-- 		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
+		<!-- ORM : Mybatis, Hibernate / JPA -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
 			<scope>${scope.compile}</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency> -->
-        	
-  <!--       <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency>  -->	
-	
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>asm</groupId>
+					<artifactId>asm-attrs</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>${scope.compile}</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-validator</artifactId> 
+			<scope>${scope.provided}</scope> </dependency> -->
+
+		<!-- Database & JDBC -->
+		<!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+
+
+		<!-- FILE PATTERN & Template -->
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+
+		<!-- <dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency> -->
+
+		<!-- utils -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<scope>${scope.compile}</scope>
 		</dependency>
-			
+				
+		<!-- <dependency> <groupId>com.alibaba</groupId> <artifactId>fastjson</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> <dependency> <groupId>org.apache.commons</groupId> 
+			<artifactId>commons-lang3</artifactId> <scope>${scope.compile}</scope> </dependency> 
+			<dependency> <groupId>commons-codec</groupId> <artifactId>commons-codec</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> -->
+
+		<!-- <dependency> <groupId>commons-io</groupId> <artifactId>commons-io</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> -->
+
+
+
 	</dependencies>
 </project>

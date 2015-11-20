@@ -7,12 +7,12 @@
 
 	<context:property-placeholder
 		location="classpath:env.properties" />
-
-	<context:component-scan base-package="cn.touch.db,cn.touch.serv">
+		
+	<context:component-scan base-package="cn.touch.showcase.db,cn.touch.showcase.serv">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
-	<bean id="contexts" class="cn.touch.frame.Contexts"></bean>
+	<bean id="contexts" class="cn.touch.Contexts"></bean>
 	
 	<!-- 配置 JSR303 Bean Validator 定义 -->
 	<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" /> -->

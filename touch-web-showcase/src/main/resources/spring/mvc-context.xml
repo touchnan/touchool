@@ -26,11 +26,11 @@
 	<mvc:resources mapping="/resources-#{applicationProps['application.version']}/**" location="/, /public-resources/, classpath:/META-INF/public-web-resources/" cache-period="31556926"/>
 	-->          
 		
-	<context:component-scan base-package="cn.touch.controller" use-default-filters="false">
+	<context:component-scan base-package="cn.touch.web.controller,cn.touch.showcase.controller" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-	<bean id="fastjsonConverts" class="cn.touch.mapper.fastjson.MappingFastJsonHttpMessageConverter" />
+	<bean id="fastjsonConverts" class="cn.touch.web.mapper.fastjson.MappingFastJsonHttpMessageConverter" />
 
 	<!-- <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"> -->
 	<mvc:annotation-driven>
@@ -85,7 +85,7 @@
 	</mvc:interceptors> -->	
   
     <!-- 定义无Controller的path<->view直接映射 -->
-  	<mvc:view-controller path="/" view-name="redirect:${web.view.index}" />
+  	<mvc:view-controller path="/" view-name="redirect:/${web.view.index}" />
   
 	<!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
 	<mvc:default-servlet-handler />	

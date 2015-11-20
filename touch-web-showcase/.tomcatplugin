@@ -7,10 +7,9 @@
     <updateXml>true</updateXml>
     <warLocation></warLocation>
     <extraInfo></extraInfo>
-    <webPath>/touch-web</webPath>
+    <webPath>/touch-showcase</webPath>
     <webClassPathEntries>
-        <webClassPathEntry>/touch-frame/target/classes</webClassPathEntry>
-        <webClassPathEntry>/touch-web/target/classes</webClassPathEntry>
+        <webClassPathEntry>/touch-web-showcase/target/classes</webClassPathEntry>
         <webClassPathEntry>org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER</webClassPathEntry>
     </webClassPathEntries>
 </tomcatProjectProperties>

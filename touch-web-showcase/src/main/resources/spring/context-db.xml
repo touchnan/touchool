@@ -67,7 +67,7 @@
         </property>
         <property name="packagesToScan">
             <list>
-                <value>cn.touch.entity</value>
+                <value>cn.touch.showcase.entity</value>
             </list>
         </property>
         

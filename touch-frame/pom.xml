@@ -1,117 +1,115 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>cn.touch</groupId>
-    <artifactId>touch-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <relativePath>touch-parent/pom.xml</relativePath>
-  </parent>
+	<parent>
+		<groupId>cn.touch</groupId>
+		<artifactId>touch-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>touch-parent/pom.xml</relativePath>
+	</parent>
 
-  <artifactId>touch-frame</artifactId>
-  <packaging>jar</packaging>
+	<artifactId>touch-frame</artifactId>
+	<packaging>jar</packaging>
 
-  <name>touch's frame</name>
-  <description>frame of touch.</description>
+	<name>touch's frame</name>
+	<description>frame of touch.</description>
 
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <includes>
-            <include>**/*Test.java</include>
-          </includes>
-          <excludes>
-            <exclude>**/TestAll.java</exclude>
-            <exclude>**/AllWith*.java</exclude>
-            <exclude>**/*Case.java</exclude>
-          </excludes>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+					<excludes>
+						<exclude>**/TestAll.java</exclude>
+						<exclude>**/AllWith*.java</exclude>
+						<exclude>**/*Case.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
-  <dependencies>
-<!--     <dependency>
-      <groupId>cn.touch</groupId>
-      <artifactId>touch-db</artifactId>
-      <version>${version.parent}</version>
-      <scope>provided</scope>
-    </dependency> -->
+	<dependencies>
+		<!-- <dependency> <groupId>cn.touch</groupId> <artifactId>touch-db</artifactId> 
+			<version>${version.parent}</version> <scope>provided</scope> </dependency> -->
 
-     <!-- Test -->
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <scope>${scope.test}</scope>
-      </dependency>
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>${scope.test}</scope>
+		</dependency>
 
-      <!-- Logging -->
-      <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <scope>${scope.compile}</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>      
-        <scope>${scope.compile}</scope>      
-      </dependency>
+		<!-- Logging -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
 
-    <!-- Basic Web dependencies -->
-     <dependency>
-          <groupId>javax</groupId>
-          <artifactId>javaee-web-api</artifactId>
-          <scope>${scope.provided}</scope>
-      </dependency>
-      
-	<!-- security  -->
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency>
-        	
+		<!-- security -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
-			<artifactId>shiro-web</artifactId>
+			<artifactId>shiro-core</artifactId>
 			<scope>${scope.provided}</scope>
 		</dependency>
-	
-    <!-- Spring -->
+
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			 <scope>${scope.provided}</scope>
+			<artifactId>spring-context</artifactId>
+			<scope>${scope.provided}</scope>
 		</dependency>
-    
-		
-	<!-- utils -->
+
+
+		<!-- utils -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<scope>${scope.compile}</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <scope>${scope.compile}</scope>
-        </dependency>
-        <!--
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <scope>${scope.provided}</scope>
-        </dependency>  -->	
-	
-  </dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<scope>${scope.compile}</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<scope>${scope.provided}</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<scope>${scope.provided}</scope>
+		</dependency>
+	</dependencies>
 </project>

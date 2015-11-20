@@ -7,11 +7,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:property-placeholder
-		location="classpath:env.properties" />
+<!-- 	<context:property-placeholder
+		location="classpath:env.properties" /> -->
 
 	<!-- 安全认证过滤器 -->
-	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" p:securityManager-ref="securityManager" p:loginUrl="${authspace}${authclogin}" p:successUrl="${authspace}" >
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" p:securityManager-ref="securityManager" p:loginUrl="/${authspace}/${authclogin}" p:successUrl="/${authspace}" >
 		<!-- <property name="filters">
             <map>
                 <entry key="authc" value-ref="formAuthenticationFilter"/>
@@ -21,8 +21,9 @@
 			<value>
 				/static/** = anon
 				<!-- ${authspace}${authclogin} = authc -->
-				${authspace}${authclogout} = logout
-				${authspace}/** = user
+				/${authspace}/${authclogout} = logout
+				/${authspace}/** = user
+				/${web.view.welcome}/** = user
 				/user/** = user
 				/txl/** = user
 		 	</value>
