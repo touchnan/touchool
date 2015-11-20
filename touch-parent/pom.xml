@@ -445,25 +445,25 @@
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
         <version>${logback.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>      
         <version>${slf4j.version}</version>
-        <scope>${scope.provided}</scope>      
+        <scope>${scope.compile}</scope>      
       </dependency>      
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-log4j12</artifactId>
         <version>${slf4j.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>log4j</groupId>
         <artifactId>log4j</artifactId>
         <version>${log4j.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
         <exclusions>
           <exclusion>
             <groupId>javax.mail</groupId>
@@ -489,14 +489,14 @@
           <groupId>javax</groupId>
           <artifactId>javaee-web-api</artifactId>
           <version>${javaee-web.version}</version>
-          <scope>${scope.provided}</scope>
+          <scope>${scope.compile}</scope>
       </dependency>
       
        <dependency>
             <groupId>javax.servlet.jsp.jstl</groupId>
             <artifactId>jstl-api</artifactId>
             <version>${jstl.version}</version>
-            <scope>${scope.provided}</scope>
+            <scope>${scope.compile}</scope>
             <exclusions>
                 <exclusion>
                     <groupId>javax.servlet</groupId>
@@ -512,7 +512,7 @@
             <groupId>org.glassfish.web</groupId>
             <artifactId>jstl-impl</artifactId>
             <version>${jstl.version}</version>
-            <scope>${scope.provided}</scope>
+            <scope>${scope.compile}</scope>
             <exclusions>
                 <exclusion>
                     <groupId>javax.servlet</groupId>
@@ -531,7 +531,7 @@
         <groupId>net.sf.ehcache</groupId>
         <artifactId>ehcache-core</artifactId>
         <version>${version.ehcache}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>    
     
 	<!-- security  -->
@@ -539,26 +539,26 @@
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk15on</artifactId>
             <version>${bcprov.version}</version>
-            <scope>${scope.provided}</scope>
+            <scope>${scope.compile}</scope>
         </dependency>
         	
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-spring</artifactId>
 			<version>${shiro.version}</version>
-			<scope>${scope.provided}</scope>
+			<scope>${scope.compile}</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-web</artifactId>
 			<version>${shiro.version}</version>
-			<scope>${scope.provided}</scope>
+			<scope>${scope.compile}</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-ehcache</artifactId>
 			<version>${shiro.version}</version>
-			<scope>${scope.provided}</scope>
+			<scope>${scope.compile}</scope>
 		</dependency>
 
       <!-- JSR -->
@@ -567,7 +567,7 @@
         <groupId>javax.inject</groupId>
         <artifactId>javax.inject</artifactId>
         <version>${javax-inject.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
 	
     <!-- Spring -->
@@ -575,31 +575,31 @@
         <groupId>org.springframework</groupId>
         <artifactId>spring-aop</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-asm</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-aspects</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-beans</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-context</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
@@ -611,43 +611,43 @@
             <artifactId>quartz</artifactId>
           </exclusion>
         </exclusions>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-core</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-expression</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-instrument</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-instrument-tomcat</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-jdbc</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-jms</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
@@ -659,25 +659,25 @@
             <artifactId>commons-lang</artifactId>
           </exclusion>
         </exclusions>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-orm-hibernate4</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-oxm</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-struts</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
@@ -695,31 +695,31 @@
         <groupId>org.springframework</groupId>
         <artifactId>spring-tx</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-web</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc-portlet</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc-tiles3</artifactId>
         <version>${spring-framework.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
     
     <!-- ORM : Mybatis, Hibernate / JPA -->
@@ -727,13 +727,13 @@
 		<groupId>org.mybatis</groupId>
 		<artifactId>mybatis</artifactId>
 		<version>${version.mybatis}</version>
-		<scope>${scope.provided}</scope>
+		<scope>${scope.compile}</scope>
 		</dependency>
 	<dependency>
 		<groupId>org.mybatis</groupId>
 		<artifactId>mybatis-spring</artifactId>
 		<version>${mybatis-spring.version}</version>
-		<scope>${scope.provided}</scope>
+		<scope>${scope.compile}</scope>
 	</dependency>    
     
       <dependency>
@@ -746,26 +746,26 @@
             <artifactId>asm-attrs</artifactId>
           </exclusion>
         </exclusions>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-entitymanager</artifactId>
         <version>${version.hibernate}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-ehcache</artifactId>
         <version>${version.hibernate}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       
       <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-validator</artifactId>
         <version>${version.hibernate-validator}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
 
     <!-- Database & JDBC -->
@@ -773,44 +773,44 @@
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
         <version>${mysql.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
       <version>${h2.version}</version>
-      <scope>${scope.provided}</scope>
+      <scope>${scope.compile}</scope>
     </dependency>      
 	<dependency>
 	  <groupId>org.hsqldb</groupId>
 	  <artifactId>hsqldb</artifactId>
 	  <version>${hsqldb.version}</version>
-	  <scope>${scope.provided}</scope>
+	  <scope>${scope.compile}</scope>
 	</dependency>
 	    
       <dependency>
         <groupId>commons-dbutils</groupId>
         <artifactId>commons-dbutils</artifactId>
         <version>${dbutils.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>druid</artifactId>
         <version>${druid.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>c3p0</groupId>
         <artifactId>c3p0</artifactId>
         <version>${c3p0.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       <dependency>
         <groupId>com.jolbox</groupId>
         <artifactId>bonecp</artifactId>
         <version>${bonecp.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
         <exclusions>
           <exclusion>
             <groupId>com.google.guava</groupId>
@@ -826,7 +826,7 @@
         <groupId>commons-dbcp</groupId>
         <artifactId>commons-dbcp</artifactId>
         <version>${commons-dbcp.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>    
 		
     <!-- FILE PATTERN & Template -->
@@ -841,28 +841,28 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>${poi.version}</version>
-            <scope>${scope.provided}</scope>
+            <scope>${scope.compile}</scope>
         </dependency>
 
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
             <version>${freemarker.version}</version>
-            <scope>${scope.provided}</scope>
+            <scope>${scope.compile}</scope>
         </dependency>
         
       <dependency>
         <groupId>javax.mail</groupId>
         <artifactId>mail</artifactId>
         <version>${mail14.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       
       <dependency>
         <groupId>com.sun.mail</groupId>
         <artifactId>javax.mail</artifactId>
         <version>${mail15.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>        
             
 	<!-- utils -->
@@ -870,64 +870,64 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>${fastjson.version}</version>
-			<scope>${scope.provided}</scope>
+			<scope>${scope.compile}</scope>
 		</dependency>
 		<dependency>
 		  <groupId>com.fasterxml.jackson.core</groupId>
 		  <artifactId>jackson-core</artifactId>
 		  <version>${jackson.version}</version>
-		  <scope>${scope.provided}</scope>
+		  <scope>${scope.compile}</scope>
 		</dependency>
 		<dependency>
 		  <groupId>com.fasterxml.jackson.core</groupId>
 		  <artifactId>jackson-databind</artifactId>
 		  <version>${jackson.version}</version>
-		  <scope>${scope.provided}</scope>
+		  <scope>${scope.compile}</scope>
 		</dependency>
 		<dependency>
 		  <groupId>com.fasterxml.jackson.core</groupId>
 		  <artifactId>jackson-annotations</artifactId>
 		  <version>${jackson.version}</version>
-		  <scope>${scope.provided}</scope>
+		  <scope>${scope.compile}</scope>
 		</dependency>
 		
 		<dependency>
 		  <groupId>com.google.guava</groupId>
 		  <artifactId>guava</artifactId>
 		  <version>${guava.version}</version>
-		  <scope>${scope.provided}</scope>
+		  <scope>${scope.compile}</scope>
 		</dependency>
 		<dependency>
 		  <groupId>cglib</groupId>
 		  <artifactId>cglib-nodep</artifactId>
 		  <version>${cglib.version}</version>
-		  <scope>${scope.provided}</scope>
+		  <scope>${scope.compile}</scope>
 		</dependency>	      	
 		
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
-            <scope>${scope.provided}</scope>
+            <scope>${scope.compile}</scope>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>${commons-codec.version}</version>
-            <scope>${scope.provided}</scope>
+            <scope>${scope.compile}</scope>
         </dependency>        
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons-io.version}</version>
-            <scope>${scope.provided}</scope>
+            <scope>${scope.compile}</scope>
         </dependency> 	
 	
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>${commons-fileupload.version}</version>
-			<scope>${scope.provided}</scope>
+			<scope>${scope.compile}</scope>
 		</dependency>
 	    
 	    
@@ -936,7 +936,7 @@
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpcore</artifactId>
         <version>${httpcomponents.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
         <exclusions>
           <!-- <exclusion> <groupId>org.apache.httpcomponents</groupId> <artifactId>httpcore</artifactId> 
             </exclusion> <exclusion> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
@@ -947,7 +947,7 @@
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
         <version>${httpcomponents.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
         <exclusions>
           <!-- <exclusion> <groupId>org.apache.httpcomponents</groupId> <artifactId>httpcore</artifactId> 
             </exclusion> <exclusion> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
@@ -958,7 +958,7 @@
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpasyncclient</artifactId>
         <version>${httpasyncclient.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
         <exclusions>
           <!-- <exclusion> <groupId>org.apache.httpcomponents</groupId> <artifactId>httpcore</artifactId> 
             </exclusion> <exclusion> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
@@ -970,7 +970,7 @@
         <groupId>org.jsoup</groupId>
         <artifactId>jsoup</artifactId>
         <version>${jsoup.version}</version>
-        <scope>${scope.provided}</scope>
+        <scope>${scope.compile}</scope>
       </dependency>
       	    
     </dependencies>

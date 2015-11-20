@@ -80,7 +80,7 @@
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>      
         <scope>${scope.compile}</scope>      
-      </dependency>      
+      </dependency>
 
     <!-- Basic Web dependencies -->
      <dependency>
