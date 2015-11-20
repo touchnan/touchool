@@ -198,7 +198,7 @@
    
     <version.quartz>1.8.6</version.quartz>
     <version.activemq>5.7.0</version.activemq>
-    <version.joda-time>2.2</version.joda-time>
+    <version.joda-time>2.9</version.joda-time>
 
     <version.msm>1.6.4</version.msm>
     
