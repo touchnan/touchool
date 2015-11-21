@@ -13,11 +13,10 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 public class TouchUsernamePasswordToken extends UsernamePasswordToken {
 	private static final long serialVersionUID = 6053843857125042096L;
 
-	/**
-	 * 
-	 */
-	public TouchUsernamePasswordToken() {
-		super();
+	private String captcha;
+
+	public String getCaptcha() {
+		return captcha;
 	}
 
 	/**
@@ -26,70 +25,9 @@ public class TouchUsernamePasswordToken extends UsernamePasswordToken {
 	 * @param rememberMe
 	 * @param host
 	 */
-	public TouchUsernamePasswordToken(String username, char[] password, boolean rememberMe, String host) {
+	public TouchUsernamePasswordToken(String username, String password, boolean rememberMe, String host, String captcha) {
 		super(username, password, rememberMe, host);
-	}
-
-	/**
-	 * @param username
-	 * @param password
-	 * @param rememberMe
-	 */
-	public TouchUsernamePasswordToken(String username, char[] password, boolean rememberMe) {
-		super(username, password, rememberMe);
-	}
-
-	/**
-	 * @param username
-	 * @param password
-	 * @param host
-	 */
-	public TouchUsernamePasswordToken(String username, char[] password, String host) {
-		super(username, password, host);
-	}
-
-	/**
-	 * @param username
-	 * @param password
-	 */
-	public TouchUsernamePasswordToken(String username, char[] password) {
-		super(username, password);
-	}
-
-	/**
-	 * @param username
-	 * @param password
-	 * @param rememberMe
-	 * @param host
-	 */
-	public TouchUsernamePasswordToken(String username, String password, boolean rememberMe, String host) {
-		super(username, password, rememberMe, host);
-	}
-
-	/**
-	 * @param username
-	 * @param password
-	 * @param rememberMe
-	 */
-	public TouchUsernamePasswordToken(String username, String password, boolean rememberMe) {
-		super(username, password, rememberMe);
-	}
-
-	/**
-	 * @param username
-	 * @param password
-	 * @param host
-	 */
-	public TouchUsernamePasswordToken(String username, String password, String host) {
-		super(username, password, host);
-	}
-
-	/**
-	 * @param username
-	 * @param password
-	 */
-	public TouchUsernamePasswordToken(String username, String password) {
-		super(username, password);
+		this.captcha = captcha;
 	}
 
 	

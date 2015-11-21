@@ -9,18 +9,20 @@
 
 <!-- 	<context:property-placeholder
 		location="classpath:env.properties" /> -->
-
+	
+	<bean id="formAuthenticationFilter" class="cn.touch.web.security.shiro.TouchFormAuthenticationFilter"></bean>
+	
 	<!-- 安全认证过滤器 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean" p:securityManager-ref="securityManager" p:loginUrl="/${authspace}/${authclogin}" p:successUrl="/${authspace}" >
-		<!-- <property name="filters">
+		<property name="filters">
             <map>
                 <entry key="authc" value-ref="formAuthenticationFilter"/>
             </map>
-        </property> -->
+        </property>
 		<property name="filterChainDefinitions">
 			<value>
 				/static/** = anon
-				<!-- ${authspace}${authclogin} = authc -->
+				/${authspace}/${authclogin} = authc
 				/${authspace}/${authclogout} = logout
 				/${authspace}/** = user
 				/${web.view.welcome}/** = user

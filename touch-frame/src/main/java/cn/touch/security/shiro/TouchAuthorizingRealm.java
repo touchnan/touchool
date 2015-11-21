@@ -47,7 +47,16 @@ public class TouchAuthorizingRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-    	TouchPrincipal principal = touchSubjectDao.getAuthorizationInfo((TouchUsernamePasswordToken) token);
+    	TouchUsernamePasswordToken uToken = (TouchUsernamePasswordToken) token;
+    	/*-
+		// 验证码
+		Session session = SecurityUtils.getSubject().getSession();
+		String code = (String)session.getAttribute(ValidateCodeServlet.VALIDATE_CODE);
+		if (StringUtils.isBlank(SuToken.getCaptcha()) || !uToken.getCaptcha().toUpperCase().equals(code)){
+			throw new CaptchaException("验证码错误.");
+		} */
+    	
+    	TouchPrincipal principal = touchSubjectDao.getAuthorizationInfo(uToken);
     	String password = principal.getPasswd();
     	principal.clearSensitivity();
         return new SimpleAuthenticationInfo(principal, password, principal.getLoginName());        

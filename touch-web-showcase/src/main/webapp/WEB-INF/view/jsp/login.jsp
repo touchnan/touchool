@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="org.apache.shiro.web.filter.authc.FormAuthenticationFilter"%>
 <%@ include file="/WEB-INF/view/jsp/inc/inc.jsp"%>
 <html>
 	<head>
@@ -19,11 +20,14 @@
 					    <div class="row">
 					        <div class="well col-md-5 center login-box">
 					            <div class="alert alert-info">
+									<%String error = (String) request.getAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);%>
+									<%=error==null?"请输入用户名和密码":"cn.touch.web.security.CaptchaException".equals(error)?"验证码错误, 请重试.":"用户或密码错误, 请重试." %>
 
-												<c:choose>
-											      <c:when test="${!empty info }"><font color="red">${info}</font></c:when>
-											      <c:otherwise>请输入用户名和密码</c:otherwise>
-												</c:choose>					               
+										<!-- 
+										<c:choose>
+									      <c:when test="${!empty error }"><font color="red">${error}</font></c:when>
+									      <c:otherwise>请输入用户名和密码</c:otherwise>
+										</c:choose>	-->			               
 													 <!-- 		             
 					                Please login with your Username and Password.请输入用户名和密码.
 					                 -->

@@ -6,9 +6,7 @@ package cn.touch.web.controller;
 import java.beans.PropertyEditorSupport;
 
 import org.apache.commons.lang3.StringEscapeUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import cn.touch.security.shiro.TouchUsernamePasswordToken;
-
 /**
  * Jan 6, 2015
  *
@@ -32,9 +28,6 @@ public class WelcomeController {
 	
 	@Value("${authclogin}")
 	private String loginView;
-	
-	@Value("${authclogininfo}")
-	private String authclogininfo;
 	
 	@Value("${authspace}")
 	private String redirectView;
@@ -69,7 +62,7 @@ public class WelcomeController {
         if (principal==null || !subject.isAuthenticated()){/*- 未登录，则跳转到登录页,此处不会到达,被shiro过滤到登录页面 */
             return login2View();
         }
-        
+        //登录成功，计数清零、取得上次访问地址等等
         return "forward:/"+welcomeView;
     }    
     
@@ -82,20 +75,24 @@ public class WelcomeController {
         if (principal!=null && subject.isAuthenticated()){//已经登录
         	return login2View();
         }
-        
+        /*-
         try {
-        	TouchUsernamePasswordToken token = new TouchUsernamePasswordToken(username,password,false);
+        	TouchUsernamePasswordToken token = new TouchUsernamePasswordToken(username,password,false,host,captcha);
         	subject.login(token);
         	//WebUtils.getAndClearSavedRequest(request);
         	return login2View();
         } catch (AuthenticationException e) {
             //登录失败
             model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
-            model.addAttribute(StringUtils.isBlank(authclogininfo) ? "info" : authclogininfo, e.getLocalizedMessage());
+            model.addAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, e.getLocalizedMessage());
             //纪录失败次数,限制登录等
             return loginView;
         }
+        */
         
+        //纪录失败次数,限制登录等
+	    model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
+        return loginView;        
     }    
     
 	/**

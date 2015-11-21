@@ -93,7 +93,7 @@
 
 		<!-- security -->
 		<bcprov.version>1.51</bcprov.version>
-		<shiro.version>1.2.3</shiro.version>
+		<shiro.version>1.2.4</shiro.version>
 
 		<!-- JSR -->
 		<!-- JSR 330 Standard Annotations -->
