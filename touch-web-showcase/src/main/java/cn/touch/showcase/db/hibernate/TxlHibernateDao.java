@@ -50,7 +50,7 @@ public class TxlHibernateDao implements ITxlDao {
 	 * @return
 	 */
 	private Session getHibernateSession() {
-		return this.sessionFactory.openSession();
+		return this.sessionFactory.getCurrentSession();
 	}
 
     @Override

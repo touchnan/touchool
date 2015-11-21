@@ -5,8 +5,12 @@ package cn.touch.web.controller;
 
 import java.beans.PropertyEditorSupport;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +21,9 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import cn.touch.security.shiro.TouchUsernamePasswordToken;
+import cn.touch.web.security.shiro.TouchFormAuthenticationFilter;
 
 /**
  * Jan 6, 2015
@@ -35,6 +42,11 @@ public class WelcomeController {
 	@Value("${web.view.welcome}")
 	private String welcomeView;
 	
+	@Value("${authcFilter.login}")
+	private boolean shiroFilterLogin;//过滤器登录
+	
+	@Value("${skip.security.code}")
+	public static boolean skipSecurityCode;
 	
 	private String login2View() {
 		return "redirect:/"+redirectView;
@@ -67,7 +79,11 @@ public class WelcomeController {
     }    
     
     @RequestMapping(value="/${authspace}/${authclogin}",method = RequestMethod.POST)
-    public String login(@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String username,@RequestParam(FormAuthenticationFilter.DEFAULT_PASSWORD_PARAM) String password,Model model) {
+    public String login(HttpServletRequest request,
+    		@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String username,
+    		@RequestParam(FormAuthenticationFilter.DEFAULT_PASSWORD_PARAM) String password,
+    		@RequestParam(required=false,value=TouchFormAuthenticationFilter.DEFAULT_CAPTCHA_PARAM) String captcha,
+    		Model model) {
         Subject subject = SecurityUtils.getSubject();
         //Principal principal = (Principal)subject.getPrincipal();
         
@@ -75,24 +91,29 @@ public class WelcomeController {
         if (principal!=null && subject.isAuthenticated()){//已经登录
         	return login2View();
         }
-        /*-
-        try {
-        	TouchUsernamePasswordToken token = new TouchUsernamePasswordToken(username,password,false,host,captcha);
-        	subject.login(token);
-        	//WebUtils.getAndClearSavedRequest(request);
-        	return login2View();
-        } catch (AuthenticationException e) {
-            //登录失败
-            model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
-            model.addAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, e.getLocalizedMessage());
-            //纪录失败次数,限制登录等
-            return loginView;
-        }
-        */
         
-        //纪录失败次数,限制登录等
-	    model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
-        return loginView;        
+        if (!shiroFilterLogin) {//非过滤器登录
+	        try {
+	        	TouchUsernamePasswordToken token = new TouchUsernamePasswordToken(username,password,false,getHost(request),captcha);
+	        	subject.login(token);
+	        	//WebUtils.getAndClearSavedRequest(request);
+	        	return login2View();
+	        } catch (AuthenticationException e) {
+	            //登录失败
+	            model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
+	            model.addAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, e.getLocalizedMessage());
+	            //纪录失败次数,限制登录等
+	            return loginView;
+	        }
+        } else {
+	        //纪录失败次数,限制登录等
+		    model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, username);
+	        return loginView;
+        }
+    }
+    
+    protected String getHost(ServletRequest request) {
+        return request.getRemoteHost();
     }    
     
 	/**

@@ -19,7 +19,7 @@ import cn.touch.security.shiro.TouchUsernamePasswordToken;
  */
 public class TouchFormAuthenticationFilter extends FormAuthenticationFilter {
 
-	public static final String DEFAULT_CAPTCHA_PARAM = "validateCode";
+	public static final String DEFAULT_CAPTCHA_PARAM = "securityCode";
 
 	private String captchaParam = DEFAULT_CAPTCHA_PARAM;
 
