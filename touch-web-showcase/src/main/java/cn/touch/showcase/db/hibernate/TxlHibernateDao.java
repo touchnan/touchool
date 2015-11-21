@@ -62,7 +62,7 @@ public class TxlHibernateDao implements ITxlDao {
 
     @Override
     public User find(Long id) {
-        return (User) this.sessionFactory.getCurrentSession().load(User.class, id);
+        return (User) getHibernateSession().load(User.class, id);
     }
 
     @Override
