@@ -5,7 +5,7 @@
 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 
-	<display-name>touch-mvc</display-name>
+	<display-name>touch-showcase</display-name>
 
 	<!-- 激活Tomcat的defaultServlet来处理静态文件 -->
 	<servlet-mapping>

@@ -9,6 +9,7 @@ import javax.servlet.ServletResponse;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.apache.shiro.web.util.WebUtils;
+import org.springframework.stereotype.Component;
 
 import cn.touch.security.shiro.TouchUsernamePasswordToken;
 
@@ -17,6 +18,7 @@ import cn.touch.security.shiro.TouchUsernamePasswordToken;
  *
  * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
  */
+@Component
 public class TouchFormAuthenticationFilter extends FormAuthenticationFilter {
 
 	public static final String DEFAULT_CAPTCHA_PARAM = "securityCode";
