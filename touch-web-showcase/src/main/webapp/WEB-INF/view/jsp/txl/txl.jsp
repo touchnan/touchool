@@ -4,8 +4,8 @@
     Author     : touchnan
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page import="cn.touch.entity.UserProperty"%>
-<%@page import="cn.touch.entity.User"%>
+<%@page import="cn.touch.showcase.entity.UserProperty"%>
+<%@page import="cn.touch.showcase.entity.User"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
