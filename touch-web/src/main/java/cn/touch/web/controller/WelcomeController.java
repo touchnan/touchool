@@ -46,7 +46,7 @@ public class WelcomeController {
 	private boolean shiroFilterLogin;//过滤器登录
 	
 	@Value("${skip.security.code}")
-	public static boolean skipSecurityCode;
+	public boolean skipSecurityCode;
 	
 	private String login2View() {
 		return "redirect:/"+redirectView;

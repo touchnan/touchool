@@ -36,7 +36,7 @@ public class TxlHibernateDao implements ITxlDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<User> findAll() {
-        Session s = getHibernateSession();
+        Session s = getSession();
         Criteria c = s.createCriteria(User.class);
         c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         c.setCacheable(true);
@@ -49,25 +49,25 @@ public class TxlHibernateDao implements ITxlDao {
 	/**
 	 * @return
 	 */
-	private Session getHibernateSession() {
+	private Session getSession() {
 		return this.sessionFactory.getCurrentSession();
 	}
 
     @Override
     public User save(User u) {
-        Session s = getHibernateSession();
+        Session s = getSession();
         s.saveOrUpdate(u);
         return u;
     }
 
     @Override
     public User find(Long id) {
-        return (User) getHibernateSession().load(User.class, id);
+        return (User) getSession().load(User.class, id);
     }
 
     @Override
     public User find(String propValue) {
-        Session s = getHibernateSession();
+        Session s = getSession();
         Criteria c = s.createCriteria(User.class).createAlias("props", " p ");
         c.add(Restrictions.like("p.value", "%" + propValue + "%"));
         c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
@@ -77,7 +77,7 @@ public class TxlHibernateDao implements ITxlDao {
 
     @Override
     public User findByLoginName(String loginName) {
-        Session s = getHibernateSession();
+        Session s = getSession();
         Criteria c = s.createCriteria(User.class);
         c.add(Restrictions.eq("loginName", loginName));
         c.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
@@ -101,7 +101,7 @@ public class TxlHibernateDao implements ITxlDao {
      */
     @Override
     public void deletes(Class<?> clazz, Set<?> entities) {
-        Session s = getHibernateSession();
+        Session s = getSession();
         for (Object o : entities) {
             s.delete(o);
         }
@@ -115,7 +115,7 @@ public class TxlHibernateDao implements ITxlDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<String> findLabels() {
-        Session s = getHibernateSession();
+        Session s = getSession();
         Criteria c = s.createCriteria(UserProperty.class);
         //c.setProjection(Projections.distinct(Projections.property("title")));
         //c.addOrder(Order.asc("id"));

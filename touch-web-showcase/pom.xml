@@ -49,7 +49,9 @@
 		<!-- Logging -->
 		<!-- <dependency> <groupId>ch.qos.logback</groupId> <artifactId>logback-classic</artifactId> 
 			<scope>${scope.compile}</scope> </dependency> <dependency> <groupId>org.slf4j</groupId> 
-			<artifactId>slf4j-api</artifactId> <scope>${scope.compile}</scope> </dependency> -->
+			<artifactId>slf4j-api</artifactId> <scope>${scope.compile}</scope> </dependency> 
+			<dependency><groupId>org.slf4j</groupId> <artifactId>slf4j-log4j12</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> -->
 
 		<!-- Basic Web dependencies -->
 		<dependency>
@@ -197,11 +199,8 @@
 			<scope>${scope.compile}</scope>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<scope>${scope.compile}</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.freemarker</groupId> <artifactId>freemarker</artifactId> 
+			<scope>${scope.compile}</scope> </dependency> -->
 
 		<!-- utils -->
 		<dependency>
@@ -209,7 +208,7 @@
 			<artifactId>commons-fileupload</artifactId>
 			<scope>${scope.compile}</scope>
 		</dependency>
-				
+
 		<!-- <dependency> <groupId>com.alibaba</groupId> <artifactId>fastjson</artifactId> 
 			<scope>${scope.compile}</scope> </dependency> <dependency> <groupId>org.apache.commons</groupId> 
 			<artifactId>commons-lang3</artifactId> <scope>${scope.compile}</scope> </dependency> 

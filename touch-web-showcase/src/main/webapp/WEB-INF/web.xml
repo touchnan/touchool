@@ -98,6 +98,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<session-timeout>20</session-timeout>
 	</session-config>
 
+	<!-- <jsp-config>
+		<jsp-property-group>
+			<el-ignored>false</el-ignored>
+		</jsp-property-group>
+	</jsp-config> -->
+
 	<!-- 错误 页面配置 -->
 	<error-page>
 		<exception-type>java.lang.Throwable</exception-type>
