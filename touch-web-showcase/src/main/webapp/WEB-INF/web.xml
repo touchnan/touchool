@@ -38,12 +38,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<!-- <context-param> <param-name>spring.profiles.default</param-name> <param-value>production</param-value> 
 		</context-param> -->
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
 	</listener>
 
 	<filter>
 		<filter-name>Character Encoding</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
@@ -54,10 +56,15 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<!-- <filter> <filter-name>openSessionInViewFilter</filter-name> <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class> 
+		</filter> <filter-mapping> <filter-name>openSessionInViewFilter</filter-name> 
+		<url-pattern>/*</url-pattern> </filter-mapping> -->
+
 	<!-- Apache Shiro -->
 	<filter>
 		<filter-name>shiroFilter</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
 		<init-param>
 			<param-name>targetFilterLifecycle</param-name>
 			<param-value>true</param-value>
@@ -72,7 +79,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		implementations). -->
 	<servlet>
 		<servlet-name>dispatcherServlet</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring/mvc-context.xml</param-value>
