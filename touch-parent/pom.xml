@@ -135,7 +135,9 @@
 		<commons-lang3.version>3.1</commons-lang3.version>
 		<commons-codec.version>1.9</commons-codec.version>
 		<commons-io.version>2.4</commons-io.version>
-
+	
+		<netty.version>4.0.33.Final</netty.version>
+		
 		<!-- HTTP & HTML -->
 		<httpcomponents.version>4.2.4</httpcomponents.version>
 		<httpasyncclient.version>4.0-beta3</httpasyncclient.version>
@@ -950,6 +952,14 @@
 				<scope>${scope.compile}</scope>
 			</dependency>
 
+
+		    <dependency>
+		      <groupId>io.netty</groupId>
+		      <!-- Use 'netty-all' for 4.0 or above, 'netty' for below -->
+		      <artifactId>netty-all</artifactId>
+		      <version>${netty.version}</version>
+		      <scope>${scope.compile}</scope>
+		    </dependency>
 
 			<!-- HTTP & HTML -->
 			<dependency>
