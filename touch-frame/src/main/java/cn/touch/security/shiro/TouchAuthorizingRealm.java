@@ -16,7 +16,7 @@ import org.apache.shiro.subject.PrincipalCollection;
  * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
  */
 public class TouchAuthorizingRealm extends AuthorizingRealm {
-    
+
 	private ITouchSubjectDao touchSubjectDao;
 	
     public TouchAuthorizingRealm(ITouchSubjectDao touchSubjectDao) {

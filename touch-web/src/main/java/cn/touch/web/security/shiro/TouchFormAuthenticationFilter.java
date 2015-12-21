@@ -32,7 +32,7 @@ public class TouchFormAuthenticationFilter extends FormAuthenticationFilter {
 	protected String getCaptcha(ServletRequest request) {
 		return WebUtils.getCleanParam(request, getCaptchaParam());
 	}	
-	
+
 	/* (non-Javadoc)
 	 * @see org.apache.shiro.web.filter.authc.FormAuthenticationFilter#createToken(javax.servlet.ServletRequest, javax.servlet.ServletResponse)
 	 */
