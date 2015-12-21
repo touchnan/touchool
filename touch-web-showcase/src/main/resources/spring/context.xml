@@ -24,7 +24,7 @@
 	
 	<!-- PKCS52S2加密 -->
 	<bean id="pkcs5s2Encoder" class="cn.touch.security.crypto.encode.PKCS5S2Encoder"></bean>
-	
+
 	<import resource="context-db.xml"/>
 	<import resource="context-shiro.xml"/>
 </beans>
