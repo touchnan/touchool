@@ -209,7 +209,7 @@
 		<!-- <dependency> <groupId>org.freemarker</groupId> <artifactId>freemarker</artifactId> 
 			<scope>${scope.compile}</scope> </dependency> -->
 
-		<!-- utils -->
+		<!-- util -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>

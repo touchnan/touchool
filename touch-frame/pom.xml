@@ -79,7 +79,7 @@
 		</dependency>
 
 
-		<!-- utils -->
+		<!-- util -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>

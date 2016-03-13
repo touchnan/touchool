@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>cn.touch</groupId>
-    <artifactId>touch-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <relativePath>touch-parent/pom.xml</relativePath>
-  </parent>
+    <parent>
+        <groupId>cn.touch</groupId>
+        <artifactId>touch-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>touch-parent/pom.xml</relativePath>
+    </parent>
 
   <artifactId>touch-examples</artifactId>
   <packaging>jar</packaging>
@@ -35,29 +35,44 @@
   </build>
 
   <dependencies>
-    <dependency>
-      <groupId>cn.touch</groupId>
-      <artifactId>touch-heart</artifactId>
-      <version>${parent.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>cn.touch</groupId>
-      <artifactId>touch-db</artifactId>
-      <version>${parent.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
+
+      <!-- Logging -->
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <scope>${scope.compile}</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <scope>${scope.compile}</scope>
+      </dependency>
+
+    <!--<dependency>-->
+      <!--<groupId>cn.touch</groupId>-->
+      <!--<artifactId>touch-heart</artifactId>-->
+      <!--<version>${parent.version}</version>-->
+      <!--<scope>test</scope>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>cn.touch</groupId>-->
+      <!--<artifactId>touch-db</artifactId>-->
+      <!--<version>${parent.version}</version>-->
+      <!--<scope>test</scope>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>org.apache.httpcomponents</groupId>-->
+      <!--<artifactId>httpclient</artifactId>-->
+      <!--<scope>test</scope>-->
+    <!--</dependency>-->
+
       <!-- jsoup HTML parser library @ http://jsoup.org/ -->
-      <groupId>org.jsoup</groupId>
-      <artifactId>jsoup</artifactId>
-      <scope>test</scope>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.jsoup</groupId>-->
+      <!--<artifactId>jsoup</artifactId>-->
+      <!--<scope>test</scope>-->
+    <!--</dependency>-->
     
     <!-- 
     <dependency>
@@ -67,7 +82,7 @@
     </dependency>
     -->
      
-    <dependency>
+<!--    <dependency>
       <groupId>javax.mail</groupId>
       <artifactId>mail</artifactId>
       <scope>test</scope>
@@ -83,6 +98,17 @@
         <groupId>cglib</groupId>
         <artifactId>cglib-nodep</artifactId>
         <scope>test</scope>
-      </dependency>        
+      </dependency>-->
+
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <scope>${scope.compile}</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <scope>${scope.compile}</scope>
+    </dependency>
   </dependencies>
 </project>
