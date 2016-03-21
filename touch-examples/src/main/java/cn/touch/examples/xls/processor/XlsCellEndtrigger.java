@@ -5,8 +5,10 @@ import org.apache.poi.ss.usermodel.Cell;
 /**
  * Created by touchnan on 2016/3/10.
  */
+@FunctionalInterface
 public interface XlsCellEndtrigger {
-    default  boolean end(Cell cell) {
-        return true;
-    }
+    boolean end(Cell cell);
+//    default  boolean end(Cell cell) {
+//        return true;
+//    }
 }

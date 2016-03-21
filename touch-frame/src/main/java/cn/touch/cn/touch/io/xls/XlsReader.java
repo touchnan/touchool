@@ -9,7 +9,11 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by touchnan on 2016/3/10.
@@ -134,6 +138,72 @@ public interface XlsReader {
         return readCellValue(row.getCell(cIndx));
     }
 
+    default String readCellValueString(Row row, int cIndx) {
+        return readCellValueString(row,cIndx,new DecimalFormat("#"));
+    }
+
+    default String readCellValueString(Cell cell) {
+        return readCellValueString(cell,new DecimalFormat("#"));
+    }
+
+    default String readCellValueString(Cell cell,DecimalFormat df) {
+        Object val = this.readCellValue(cell);
+        return parse2String(df, val);
+    }
+
+    default String readCellValueString(Row row, int cIndx,DecimalFormat df) {
+        Object val = this.readCellValue(row,cIndx);
+        return parse2String(df, val);
+    }
+
+    default String parse2String(DecimalFormat df, Object val) {
+        if (val!=null) {
+            if (val instanceof  String) {
+                return (String) val;
+            } else if (val instanceof Double) {
+                return df.format(val);
+            }
+        }
+        return null;
+    }
+
+    default Date readCellValueDate(Cell cell) {
+        Object val = this.readCellValue(cell);
+        return parse2Date(new SimpleDateFormat("yyyyMMdd"),new DecimalFormat("#"),val);
+    }
+
+    default Date readCellValueDate(Row row, int cIndx) {
+        Object val = this.readCellValue(row,cIndx);
+        return parse2Date(new SimpleDateFormat("yyyyMMdd"),new DecimalFormat("#"),val);
+    }
+
+    default Date parse2Date(DateFormat dateFormat, DecimalFormat decimalFormat, Object val) {
+        if (val != null) {
+            if (val instanceof Date) {
+                return (Date)val;
+            } else if (val instanceof String) {
+                try {
+                    return dateFormat.parse((String)val);
+                } catch (ParseException e) {
+                    logger.error(String.format("解析日期[%s]错误", val),e);
+                }
+            } else if (val instanceof Double) {
+                try {
+                    return dateFormat.parse(decimalFormat.format((Double) val));
+                } catch (ParseException e) {
+                    logger.error(String.format("解析日期[%s]错误", val),e);
+                }
+            }
+        }
+        return null;
+    }
+
+    default Long readCellValueLong(Cell cell) {
+        double val = cell.getNumericCellValue();
+        DecimalFormat df = new DecimalFormat("#");
+        return Long.valueOf(df.format(val));
+    }
+
     /*-
 
     http://yl-fighting.iteye.com/blog/1726285
@@ -167,7 +237,7 @@ DecimalFormat df = new DecimalFormat("#.#########");
 	                    o = cell.getBooleanCellValue();
 	                    break;
 	                case Cell.CELL_TYPE_ERROR:
-	                    o = cell.getErrorCellValue();
+	                    //o = cell.getErrorCellValue();//不读取错误数据
 	                    break;
 	                case Cell.CELL_TYPE_FORMULA:
 	                    o = cell.getNumericCellValue();
@@ -191,13 +261,13 @@ DecimalFormat df = new DecimalFormat("#.#########");
         return o;
     }
 
-    default Long readCellLongValue(Cell cell) {
-        double val = cell.getNumericCellValue();
-        return parseDouble2Long(val);
-    }
-
-    default Long parseDouble2Long(double val) {
-        DecimalFormat df = new DecimalFormat("#");
-        return Long.valueOf(df.format(val));
-    }
+//    default Long readCellLongValue(Cell cell) {
+//        double val = cell.getNumericCellValue();
+//        return parseDouble2Long(val);
+//    }
+//
+//    default Long parseDouble2Long(double val) {
+//        DecimalFormat df = new DecimalFormat("#");
+//        return Long.valueOf(df.format(val));
+//    }
 }

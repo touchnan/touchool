@@ -5,8 +5,10 @@ import org.apache.poi.ss.usermodel.Row;
 /**
  * Created by touchnan on 2016/3/10.
  */
+@FunctionalInterface
 public interface XlsRowEndtrigger {
-    default boolean end(Row row) {
-        return true;
-    }
+    boolean end(Row row);
+//    default boolean end(Row row) {
+//        return true;
+//    }
 }
