@@ -4,6 +4,7 @@
  */
 package test.cn.touch;
 
+import cn.touch.cn.touch.io.xls.XlsReader;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -18,5 +19,4 @@ import test.cn.touch.kit.AllKitTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses(AllKitTest.class)
 public class AllTest {
-
 }
