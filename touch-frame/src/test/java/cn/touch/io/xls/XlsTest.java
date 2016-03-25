@@ -87,19 +87,13 @@ public class XlsTest implements XlsReader {
             		System.out.println("");
             	}*/
 
-                String code = (String) this.readCellValue(row,2);//47
-                Object attachmentObj = this.readCellValue(row, 63);//
-                String attachmentName = "";
-                if (!(attachmentObj instanceof String)) {
-                    attachmentName = Long.toString(parseDouble2Long((Double) attachmentObj));
-                } else {
-                    attachmentName = (String) attachmentObj;
-                }
+                String code = this.readCellValueString(row,2);//47
+                String attachmentName = this.readCellValueString(row,63);//
 
-                String companyName =(String)this.readCellValue(row, 10);//24
-                String companyId = (String)this.readCellValue(row, 28);//28  56
-                String departName =(String)this.readCellValue(row, 30);
-                String departId = (String)this.readCellValue(row, 29);
+                String companyName = this.readCellValueString(row, 10);//24
+                String companyId = this.readCellValueString(row, 28);//28  56
+                String departName = this.readCellValueString(row, 30);
+                String departId = this.readCellValueString(row, 29);
 
 //                ContractDataDto meijuShujuDto = new ContractDataDto(code,attachmentName,companyName,companyId,departName,departId);
 //                Object obj = new Object();

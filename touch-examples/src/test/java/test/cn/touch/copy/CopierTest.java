@@ -27,7 +27,7 @@ public class CopierTest {
       copy.copy(src, b, null);
       Assert.assertEquals("年纪", age, b.getValue());
       Assert.assertEquals("名字", name, b.getName());
-      
+
 //      org.apache.commons.beanutils.BeanUtils.copyProperties(targetObj, page.getWhere());
     }
     
