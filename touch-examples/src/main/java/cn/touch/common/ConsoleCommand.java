@@ -1,6 +1,8 @@
 package cn.touch.common;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -18,6 +20,7 @@ public class ConsoleCommand {
     public static void format() {
         System.out.println(String.format("%.2f", 2.2323));
     }
+
     public static void exec() {
         String cmd = "ping 127.0.0.1";
         Process process = null;
@@ -47,7 +50,7 @@ public class ConsoleCommand {
      * @return 从输出流中读取的数据
      * @throws IOException
      */
-    public static final String readConsoleShell(Process process) throws IOException{
+    public static final String readConsoleShell(Process process) throws IOException {
         try (InputStreamReader isr = new InputStreamReader(process.getInputStream(), Charset.forName("GBK"));
              BufferedReader br = new BufferedReader(isr)) {
             //String LINE_SEPARATOR = System.getenv("line.separator");os.name
@@ -55,7 +58,7 @@ public class ConsoleCommand {
 
             StringBuilder sb = new StringBuilder();
             String line = "";
-            while((line = br.readLine())!= null){
+            while ((line = br.readLine()) != null) {
                 System.out.println(line);
                 sb.append(line).append(LINE_SEPARATOR);// 追加换行符
             }
