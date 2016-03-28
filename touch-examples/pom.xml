@@ -71,6 +71,12 @@
             <scope>${scope.compile}</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>pinyin4j</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+
         <!--<dependency>-->
         <!--<groupId>cn.touch</groupId>-->
         <!--<artifactId>touch-heart</artifactId>-->
