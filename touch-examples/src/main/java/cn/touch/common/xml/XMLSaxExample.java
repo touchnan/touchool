@@ -62,4 +62,32 @@ public class XMLSaxExample {
             e.printStackTrace();
         }
     }
+
+	/*-
+	*
+http://blog.csdn.net/luka2008/article/details/8203915
+
+用SAX解析XML.
+String vendorParserClass= "org.apache.xerces.parsers.SAXParser";
+XMLReader reader = XMLReaderFactory.createXMLReader(vendorParserClass);
+抛出异常：java.lang.ClassNotFoundException:org.apache.xerces.parsers.SAXParser
+原因：未在classpath中加入xercesImpl.jar.
+但如果改为：XMLReader reader = XMLReaderFactory.createXMLReader();
+程序能正常运行。此时程序创建的是一个默认的XMLReader。
+
+如果系统的org.xml.sax.driver i没有被指定为特定的service API：org.xml.sax.driver , org.xml.sax.helpers.此时XMLReaderFactory.createXMLReader 将会使用由SAX Parser指定的默认的XMLReader class （在SUN JDK5, 默认的类是com.sun.org.apache.xerces.internal.parsers.SAXParser.）因此，如果应用程序改变了系统的 org.xml.sax.driver 属性，指向了org.apache.xerces.parsers.SAXParser, 将会产生ClassNotFoundException.
+如果不添加xercesImpl.jar的解决方法是：在程序中如果要获取 XMLReader，则不要设定系统的org.xml.sax.driver 属性，或者使用如下的回退机制：
+catch (Exception e) { 
+                  try { 
+                       // If unable to create an instance, let's try to use 
+                       // the XMLReader from JAXP 
+                       if (m_parserFactory == null) { 
+                           m_parserFactory = SAXParserFactory.newInstance(); 
+                           m_parserFactory.setNamespaceAware(true); 
+                       }
+                       reader = m_parserFactory.newSAXParser().getXMLReader();
+
+Note ：that it is generally not a good idea to hard code a reference com.sun.org.apache.xerces.internal.parsers.SAXParser in your application, because the class might not be available when JDK upgrades or in other distributions of JDK .
+
+	*/
 }
