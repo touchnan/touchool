@@ -91,7 +91,8 @@
 	</mvc:interceptors> -->	
   
     <!-- 定义无Controller的path<->view直接映射 -->
-  	<mvc:view-controller path="/" view-name="redirect:/${web.view.index}" />
+  	<!-- <mvc:view-controller path="/" view-name="redirect:/${web.view.index}" /> -->
+	<mvc:view-controller path="/" view-name="/${web.view.index}" />
   
 	<!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
 	<mvc:default-servlet-handler />	
