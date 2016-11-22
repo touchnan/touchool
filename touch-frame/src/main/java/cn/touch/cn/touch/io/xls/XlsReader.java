@@ -72,7 +72,7 @@ public interface XlsReader {
                     if (!decryptor.verifyPassword(password)) {
                         throw new RuntimeException("Unable to process: document is encrypted");
                     }
-                    return new HSSFWorkbook(decryptor.getDataStream(pfs));
+                    return new XSSFWorkbook(decryptor.getDataStream(pfs));
                 } catch (GeneralSecurityException ex) {
                     throw new RuntimeException("Unable to process encrypted document", ex);
                 }
