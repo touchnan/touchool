@@ -1,7 +1,13 @@
 package cn.touch.cn.touch.io.xls;
 
 import cn.touch.cn.touch.io.xls.processor.*;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.hssf.record.crypto.Biff8EncryptionKey;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.crypt.Decryptor;
+import org.apache.poi.poifs.crypt.EncryptionInfo;
+import org.apache.poi.poifs.filesystem.NPOIFSFileSystem;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
@@ -9,6 +15,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.GeneralSecurityException;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -27,7 +36,7 @@ import java.util.Date;
 public interface XlsReader {
     public static final Logger logger = LoggerFactory.getLogger(XlsReader.class);
 
-    default Workbook workbook(File file) {
+    /*default Workbook workbook(File file) {
         try {
             return new XSSFWorkbook(new FileInputStream(file));
         } catch (Exception e) {
@@ -37,6 +46,53 @@ public interface XlsReader {
             }
         }
         return null;
+    }*/
+
+    default Workbook workbook(File file) {
+        return this.workbook(file, null);
+    }
+
+    default Workbook workbook(File file, String password) {
+        try {
+            return new XSSFWorkbook(new FileInputStream(file));
+        } catch (Exception e) {
+            try {
+                return new HSSFWorkbook(new FileInputStream(file));
+            } catch (Exception e1) {
+            }
+        }
+
+        if (StringUtils.isNotBlank(password)) {
+            try {
+                InputStream fis = new FileInputStream(file);
+                POIFSFileSystem pfs = new POIFSFileSystem(fis);
+                EncryptionInfo encInfo = new EncryptionInfo(pfs);
+                Decryptor decryptor = Decryptor.getInstance(encInfo);
+                try {
+                    if (!decryptor.verifyPassword(password)) {
+                        throw new RuntimeException("Unable to process: document is encrypted");
+                    }
+                    return new HSSFWorkbook(decryptor.getDataStream(pfs));
+                } catch (GeneralSecurityException ex) {
+                    throw new RuntimeException("Unable to process encrypted document", ex);
+                }
+            } catch (Exception e) {
+                try {
+                    Biff8EncryptionKey.setCurrentUserPassword(password);
+//        			NPOIFSFileSystem fs = new NPOIFSFileSystem(file, true);
+//        			HSSFWorkbook hwb = new HSSFWorkbook(fs.getRoot(), true);
+                    NPOIFSFileSystem fs = new NPOIFSFileSystem(file);
+                    HSSFWorkbook hwb = new HSSFWorkbook(fs.getRoot(), true);
+                    Biff8EncryptionKey.setCurrentUserPassword(null);
+                    fs.close();
+                    return hwb;
+                } catch (IOException e1) {
+                }
+            }
+        }
+
+        return null;
+
     }
 
     /**
