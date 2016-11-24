@@ -298,6 +298,12 @@ DecimalFormat df = new DecimalFormat("#.#########");
 	                case Cell.CELL_TYPE_FORMULA:
 	                    o = cell.getNumericCellValue();
 	                    //o = cell.getCellFormula();
+
+                        //Workbook wb = cell.getSheet().getWorkbook();
+                        //CreationHelper crateHelper = wb.getCreationHelper();
+                        //FormulaEvaluator evaluator = crateHelper.createFormulaEvaluator();
+                        //System.out.println(evaluator.evaluateInCell(cell));
+                        //evaluator.evaluateInCell(cell).getNumericCellValue();
 	                    break;
 	                case Cell.CELL_TYPE_NUMERIC:
 	                    if (DateUtil.isCellDateFormatted(cell)) {
@@ -311,7 +317,9 @@ DecimalFormat df = new DecimalFormat("#.#########");
 	                    break;
 	            }
 	        } catch (Exception e) {
-	            e.printStackTrace();
+                String msg = String.format("名为[%s]的sheet页第%s行第%s列数据内容[%s]读取有误,请确认！", cell.getSheet().getSheetName(), cell.getRowIndex() + 1,
+                        cell.getColumnIndex()+ 1, o==null?"#REF!":o.toString());
+                logger.error(msg, e);
 	        }
         }
         return o;
