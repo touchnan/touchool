@@ -8,7 +8,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * Oct 18, 2013
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  *
  */
 public class TestDegit {

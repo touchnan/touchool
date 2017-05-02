@@ -15,7 +15,7 @@ import org.nutz.log.Logs;
 /**
  * Feb 11, 2012
  * 
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 public class ComposeBasicDataSource extends BasicDataSource {

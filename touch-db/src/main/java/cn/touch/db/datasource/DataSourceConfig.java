@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 /**
  * Feb 11, 2012
  * 
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 public class DataSourceConfig {

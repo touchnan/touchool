@@ -15,7 +15,7 @@ import cn.touch.db.query.filter.FlexiRuleGroup;
 /**
  * Aug 11, 2013
  * 
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 public class FlexiFilterTest {
