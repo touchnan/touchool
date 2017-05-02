@@ -8,7 +8,7 @@ import java.security.Principal;
 /**
  * Jan 6, 2015
  *
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 public class TouchPrincipal implements Principal {
     private String name;

@@ -11,7 +11,7 @@ import cn.touch.security.crypto.TestEncoder;
 
 /**
  * Jan 3, 2015
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 @RunWith(Suite.class)
 @SuiteClasses({TestEncoder.class})

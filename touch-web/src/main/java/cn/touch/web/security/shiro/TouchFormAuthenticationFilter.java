@@ -16,7 +16,7 @@ import cn.touch.security.shiro.TouchUsernamePasswordToken;
 /**
  * Nov 21, 2015
  *
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 @Component
 public class TouchFormAuthenticationFilter extends FormAuthenticationFilter {

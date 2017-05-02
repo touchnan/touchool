@@ -10,7 +10,7 @@ import cn.touch.security.crypto.salt.RandomSaltGenerator;
 /**
  * Jan 4, 2015
  * 
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 public class PKCS5S2Encoder extends TouchEncoder {
 

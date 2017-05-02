@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * Jan 6, 2015
  *
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 @Controller
 public class WelcomeControl {

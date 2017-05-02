@@ -18,7 +18,7 @@ import cn.touch.security.crypto.encode.PKCS5S2Encoder;
 /**
  * Jan 4, 2015
  * 
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 public class TouchCredentialsMatcher implements CredentialsMatcher {
     private List<? extends Encoder> encoders = Arrays.asList(new PKCS5S2Encoder());

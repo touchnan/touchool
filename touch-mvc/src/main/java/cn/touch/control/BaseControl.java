@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 /**
  * Mar 10, 2015
  *
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 public class BaseControl {
    protected ResponseEntity<byte[]> down(String fileShowName, MediaType mediaType, File sourceFile) {

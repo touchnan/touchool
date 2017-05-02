@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * Aug 5, 2012
  * 
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 public class JackJsonKit extends JsonFactory implements JsonKit {

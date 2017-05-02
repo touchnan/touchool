@@ -8,7 +8,7 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 /**
  * Nov 19, 2015
  *
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 public interface ITouchSubjectDao {
 

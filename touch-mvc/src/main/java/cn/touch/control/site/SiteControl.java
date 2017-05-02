@@ -15,7 +15,7 @@ import cn.touch.control.BaseControl;
 /**
  * Mar 16, 2015
  *
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 @Controller
 public class SiteControl extends BaseControl {

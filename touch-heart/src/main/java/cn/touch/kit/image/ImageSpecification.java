@@ -7,7 +7,7 @@ package cn.touch.kit.image;
 /**
  * Sep 13, 2012
  * 
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 public class ImageSpecification {

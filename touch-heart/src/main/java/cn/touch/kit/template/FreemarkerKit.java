@@ -30,18 +30,18 @@ import freemarker.template.TemplateException;
 /**
  * May 27, 2012
  * 
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 /**
  * Aug 22, 2012
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 /**
  * Aug 22, 2012
  * 
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 public class FreemarkerKit implements TemplateKit {

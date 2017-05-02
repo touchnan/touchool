@@ -17,7 +17,7 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 /**
  * Jan 3, 2015
  * 
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 public class MappingFastJsonHttpMessageConverter extends FastJsonHttpMessageConverter {
 

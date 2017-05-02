@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 /**
  * May 27, 2012
  * 
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 public class Moneys {

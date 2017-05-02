@@ -139,7 +139,7 @@
 
 		<!-- util -->
 		<jackson.version>2.2.0</jackson.version>
-		<fastjson.version>1.2.7</fastjson.version>
+		<fastjson.version>1.2.29</fastjson.version>
 		<guava.version>14.0.1</guava.version>
 		<cglib.version>2.2</cglib.version>
 		<joda-time.version>2.9</joda-time.version>

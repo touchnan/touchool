@@ -19,7 +19,7 @@ import cn.touch.kit.conn.HttpConnector;
 /**
  * Aug 21, 2012
  * 
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 public class HttpTest {

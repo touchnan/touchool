@@ -8,7 +8,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 /**
  * Nov 19, 2015
  *
- * @author <a href="mailto:88052350@qq.com">chegnqiang.han</a>
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
 public class TouchUsernamePasswordToken extends UsernamePasswordToken {
 	private static final long serialVersionUID = 6053843857125042096L;

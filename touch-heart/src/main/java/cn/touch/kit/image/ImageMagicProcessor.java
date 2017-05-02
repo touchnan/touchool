@@ -13,7 +13,7 @@ import cn.touch.kit.env.CommandExec;
 /**
  * Sep 6, 2012
  * 
- * @author <a href="mailto:touchnan@gmail.com">chegnqiang.han</a>
+ * @author <a href="mailto:touchnan@gmail.com">chengqiang.han</a>
  * 
  */
 public class ImageMagicProcessor implements ImageProcessor {
