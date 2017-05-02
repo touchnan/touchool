@@ -56,7 +56,7 @@ public class TouchAuthorizingRealm extends AuthorizingRealm {
 			throw new CaptchaException("验证码错误.");
 		} */
     	
-    	TouchPrincipal principal = touchSubjectDao.getAuthorizationInfo(uToken);
+    	TouchPrincipal principal = touchSubjectDao.getAuthenticationInfo(uToken);
     	String password = principal.getPasswd();
     	principal.clearSensitivity();
         return new SimpleAuthenticationInfo(principal, password, principal.getLoginName());        

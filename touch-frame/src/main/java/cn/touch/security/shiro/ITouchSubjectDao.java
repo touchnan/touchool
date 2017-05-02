@@ -22,6 +22,6 @@ public interface ITouchSubjectDao {
 	 * @param userToken
 	 * @return
 	 */
-	TouchPrincipal getAuthorizationInfo(TouchUsernamePasswordToken userToken);
+	TouchPrincipal getAuthenticationInfo(TouchUsernamePasswordToken userToken);
 
 }

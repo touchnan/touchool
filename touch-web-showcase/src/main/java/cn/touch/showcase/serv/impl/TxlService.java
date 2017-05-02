@@ -285,7 +285,7 @@ public class TxlService implements ITxlService,ITouchSubjectDao {
 	 * @see cn.touch.security.shiro.ITouchSubjectDao#getAuthorizationInfo(cn.touch.security.shiro.TouchUsernamePasswordToken)
 	 */
 	@Override
-	public TouchPrincipal getAuthorizationInfo(TouchUsernamePasswordToken userToken) {
+	public TouchPrincipal getAuthenticationInfo(TouchUsernamePasswordToken userToken) {
 		User u = txlDao.findByLoginName(userToken.getUsername());
 		return new TouchPrincipal(u);
 	}
