@@ -103,7 +103,8 @@
 	</bean> -->
 	<!-- Shiro end -->
 	
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> -->
+	<bean class="cn.touch.web.handler.TouchMappingExceptionResolver">
         <!-- results into 'WEB-INF/view/exception.jsp' -->
         <property name="defaultErrorView" value="${web.view.exception}"/>
         <!-- needed otherwise exceptions won't be logged anywhere -->
@@ -114,6 +115,17 @@
 				<prop key="org.apache.shiro.authz.UnauthorizedException">error/403</prop>
 			</props>
 		</property>
+		
+		<property name="debug" value="false"/>
+	    <property name="toplips">
+	        <map>
+	            <entry key ="org.springframework.web.multipart.MaxUploadSizeExceededException" value="文件上传超过大小限制"/>
+	            <entry key ="java.lang.IllegalArgumentException" value="参数异常  "/>
+	            <entry key ="org.springframework.jdbc.BadSqlGrammarException" value="SQL语法异常  "/>
+	            <entry key ="org.apache.shiro.authz.UnauthorizedException" value="对不起,您你没有相关操作权限"/>
+	        </map>
+	    </property>
+	    		
 	</bean>
 	
 	
