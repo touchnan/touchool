@@ -41,7 +41,7 @@ public class TouchMappingExceptionResolver extends SimpleMappingExceptionResolve
 			Exception ex) {
 		if (isAjaxRequest(request)) {
 			writeExcept2Response(response, ex);
-			return null;
+			return new ModelAndView();
 		}
 		return super.doResolveException(request, response, handler, ex);
 	}
@@ -68,9 +68,7 @@ public class TouchMappingExceptionResolver extends SimpleMappingExceptionResolve
 				PrintStream u = new PrintStream(bos);
 				ex.printStackTrace(u);
 				facade.put("errStack", new String(bos.toByteArray()));
-			} else {
-
-			}
+			} 
 			writer.write(JSON.toJSONString(facade));
 			writer.flush();
 		} catch (Exception e) {
