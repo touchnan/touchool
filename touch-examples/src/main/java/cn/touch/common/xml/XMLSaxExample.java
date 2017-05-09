@@ -2,6 +2,8 @@ package cn.touch.common.xml;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
+import org.xml.sax.SAXNotRecognizedException;
+import org.xml.sax.SAXNotSupportedException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -29,6 +31,34 @@ public class XMLSaxExample {
 
     public void parserXml(String fileName) {
         SAXParserFactory saxfac = SAXParserFactory.newInstance();
+		try {
+			//这是优先选择. 如果不允许DTDs (doctypes) ,几乎可以阻止所有的XML实体攻击
+			String FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
+			saxfac.setFeature(FEATURE, true);
+			
+			/*-
+			// 如果不能完全禁用DTDs，最少采取以下措施
+		      FEATURE = "http://xml.org/sax/features/external-general-entities";
+		      saxfac.setFeature(FEATURE, false);
+
+		      FEATURE = "http://xml.org/sax/features/external-parameter-entities";
+		      saxfac.setFeature(FEATURE, false);
+
+		      // and these as well, per Timothy Morgan's 2014 paper: "XML Schema, DTD, and Entity Attacks" (see reference below)
+		      dbf.setXIncludeAware(false);
+		      saxfac.setExpandEntityReferences(false);
+		      
+		      */
+		} catch (SAXNotRecognizedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SAXNotSupportedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ParserConfigurationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
         try {
             SAXParser saxparser = saxfac.newSAXParser();
             InputStream is = new FileInputStream(fileName);

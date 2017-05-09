@@ -6,6 +6,7 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
+import org.xml.sax.SAXException;
 
 import java.io.*;
 import java.util.Iterator;
@@ -29,6 +30,30 @@ public class XMLDom4jExample {
 
         StringReader stringReader = new StringReader(xmlBuffer.toString());
         SAXReader saxReader = new SAXReader();
+        
+        try {
+			String FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
+			saxReader.setFeature(FEATURE, true);//这是优先选择. 如果不允许DTDs (doctypes) ,几乎可以阻止所有的XML实体攻击
+			
+			/*-
+			// 如果不能完全禁用DTDs，最少采取以下措施
+		      FEATURE = "http://xml.org/sax/features/external-general-entities";
+		      saxReader.setFeature(FEATURE, false);
+
+		      FEATURE = "http://xml.org/sax/features/external-parameter-entities";
+		      saxReader.setFeature(FEATURE, false);
+
+		      // and these as well, per Timothy Morgan's 2014 paper: "XML Schema, DTD, and Entity Attacks" (see reference below)
+		      dbf.setXIncludeAware(false);
+		      saxReader.setExpandEntityReferences(false);
+		      
+		      */
+		} catch (SAXException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+        
         Document document;
         try {
             document = saxReader.read(stringReader);

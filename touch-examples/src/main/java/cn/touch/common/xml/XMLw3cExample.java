@@ -79,7 +79,30 @@ public class XMLw3cExample {
     public void parserXml(String fileName) {
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            
+            //http://blog.csdn.net/u013224189/article/details/49759845
+            
+            //这是优先选择. 如果不允许DTDs (doctypes) ,几乎可以阻止所有的XML实体攻击
+			String FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
+			dbf.setFeature(FEATURE, true);
+			
+			/*-
+			// 如果不能完全禁用DTDs，最少采取以下措施
+		      FEATURE = "http://xml.org/sax/features/external-general-entities";
+		      dbf.setFeature(FEATURE, false);
+
+		      FEATURE = "http://xml.org/sax/features/external-parameter-entities";
+		      dbf.setFeature(FEATURE, false);
+
+		      // and these as well, per Timothy Morgan's 2014 paper: "XML Schema, DTD, and Entity Attacks" (see reference below)
+		      dbf.setXIncludeAware(false);
+		      dbf.setExpandEntityReferences(false);
+		      
+		      */
+
+			
             DocumentBuilder db = dbf.newDocumentBuilder();
+            
             Document document = db.parse(fileName);
             NodeList nodes = document.getChildNodes();
             for (int i = 0; i < nodes.getLength(); i++) {
@@ -87,7 +110,7 @@ public class XMLw3cExample {
                 NodeList childNodes = node.getChildNodes();
                 for (int j = 0; j < childNodes.getLength(); j++) {
                     Node child = childNodes.item(j);
-                    child.getTextContent();
+//                    child.getTextContent();
                     child.getNodeName();
                     child.getAttributes();
                 }
