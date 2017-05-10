@@ -12,6 +12,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
@@ -56,11 +57,12 @@ public class TouchMappingExceptionResolver extends SimpleMappingExceptionResolve
 
 			String clazz = ex.getClass().getName();
 			facade.put("errCode", clazz);
-
-			if (toplips.containsKey(clazz)) {
-				facade.put("errMsg", toplips.get(clazz));
-			} else {
+			
+			String detailMessage = ex.getMessage();
+			if (StringUtils.isNotBlank(detailMessage)) {
 				facade.put("errMsg", ex.getMessage());
+			} else if (toplips.containsKey(clazz)) {
+				facade.put("errMsg", toplips.get(clazz));
 			}
 
 			if (debug) {// 异常堆栈
