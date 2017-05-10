@@ -17,7 +17,11 @@ import com.alibaba.fastjson.annotation.JSONField;
  *
  * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
  */
-public class TouchPrincipal implements Principal {
+public class TouchPrincipal implements Serializable,Principal {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8512868579864102029L;
 	private Serializable id;
 	private String loginName;
 	private String name;
