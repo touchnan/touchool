@@ -1,6 +1,5 @@
-package cn.touch.cn.touch.io.xls;
+package cn.touch.io.xls;
 
-import cn.touch.cn.touch.io.xls.processor.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.record.crypto.Biff8EncryptionKey;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -12,6 +11,8 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import cn.touch.io.xls.processor.*;
 
 import java.io.File;
 import java.io.FileInputStream;

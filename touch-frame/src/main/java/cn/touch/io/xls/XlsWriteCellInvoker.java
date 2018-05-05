@@ -1,4 +1,4 @@
-package cn.touch.cn.touch.io.xls;
+package cn.touch.io.xls;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
