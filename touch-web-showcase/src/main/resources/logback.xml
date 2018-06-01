@@ -16,34 +16,35 @@
 		</encoder>
 	</appender>
 
-	<appender name="data-log"
+	<appender name="wx-data-log"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<!-- <filter class="ch.qos.logback.core.filter.EvaluatorFilter"> <evaluator 
 			name="myEval_dao"> <expression>message.contains("dao")</expression> </evaluator> 
 			<onMatch>ACCEPT</onMatch> <onMismatch>DENY</onMismatch> </filter> -->
 		<Encoding>UTF-8</Encoding>
-		<File>data.log</File>
+		<!--  File>data.log</File> -->
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>%d{yyyy-MM-dd}_data.log.zip
-			</FileNamePattern>
+			<FileNamePattern>../logs/%d{yyyy-MM-dd}_data.log</FileNamePattern>
+			<MaxHistory>10</MaxHistory>
 		</rollingPolicy>
 		<layout class="ch.qos.logback.classic.PatternLayout">
-			<pattern>%date [%thread] %msg%n</pattern>
+			<pattern>%date [%thread] %-5level %logger{36} - %msg%n</pattern>
 		</layout>
 	</appender>
 
-	<!-- <logger name="cn.touch.zkytxl" level="WARN"> <appender-ref ref="data-log" 
-		/> </logger> -->
+	<logger name="cn.touch.game" level="trace"> 
+		<appender-ref ref="wx-data-log" /> 
+	</logger>
 
 	<root>
-		<level value="DEBUG" />
+		<level value="WARN" />
 		<appender-ref ref="stdout" />
 	</root>
 
 	<!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
 
 	<logger name="org.hibernate" level="TRACE" />
-	<logger name="org.springframework" level="WARN" />
+	<logger name="org.springframework" level="TRACE" />
 	<logger name="com.opensymphony" level="WARN" />
 	<logger name="org.apache" level="WARN" />
 
