@@ -32,7 +32,7 @@
 		</layout>
 	</appender>
 
-	<logger name="cn.touch.game" level="trace"> 
+	<logger name="cn.touch" level="trace"> 
 		<appender-ref ref="wx-data-log" /> 
 	</logger>
 
