@@ -25,7 +25,11 @@
 
 
     <!--
-    hibernate5 时LocalSessionFactoryBean依赖dataSourceProxy时 不知道为什么报循环引用
+    hibernate5 时LocalSessionFactoryBean依赖dataSourceProxy时 报循环引用?
+    https://www.cnblogs.com/hxliang/p/9395166.html
+    boot自动配置DataSource
+    @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+
     ***************************
     APPLICATION FAILED TO START
     ***************************
