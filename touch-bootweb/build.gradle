@@ -1,0 +1,51 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'cn.touch.bootweb'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+
+dependencies {
+//	compile  file('cn.touch')
+
+	compile 'cn.touch:touch-web:0.0.1-SNAPSHOT'
+//	compile('org.springframework.boot:spring-boot-starter')
+	compile 'org.springframework.boot:spring-boot-starter-web'
+
+	compile 'org.springframework:spring-orm'
+	compile 'org.springframework:spring-context-support'
+
+	compile 'com.h2database:h2:1.4.182'
+//	compile 'org.hibernate:hibernate-core:4.3.11.Final'
+//	compile 'org.hibernate:hibernate-ehcache:4.3.11.Final'
+
+	compile 'org.hibernate:hibernate-core'
+	compile 'org.hibernate:hibernate-ehcache'
+
+	compile 'c3p0:c3p0:0.9.1.2'
+
+	compile 'org.apache.shiro:shiro-spring:1.2.4'
+	compile 'org.apache.shiro:shiro-ehcache:1.2.4'
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}

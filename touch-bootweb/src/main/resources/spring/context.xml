@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder
+		location="classpath:env.properties" />
+		
+	<context:component-scan base-package="cn.touch.bootweb.db,cn.touch.bootweb.serv">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	<bean id="contexts" class="cn.touch.Contexts"></bean>
+	
+	<!-- 配置 JSR303 Bean Validator 定义 -->
+	<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" /> -->
+
+	<!-- 缓存配置 -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:${ehcache.configFile}" />
+	</bean>
+	
+	<!-- PKCS52S2加密 -->
+	<bean id="pkcs5s2Encoder" class="cn.touch.security.crypto.encode.PKCS5S2Encoder"></bean>
+
+	<import resource="context-db.xml"/>
+	<import resource="context-shiro.xml"/>
+</beans>
