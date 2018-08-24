@@ -28,6 +28,8 @@ repositories {
 dependencies {
 //	compile  file('cn.touch')
 
+	compile 'io.netty:netty-all'
+
 	compile 'cn.touch:touch-web:0.0.1-SNAPSHOT'
 //	compile('org.springframework.boot:spring-boot-starter')
 	compile 'org.springframework.boot:spring-boot-starter-web'
