@@ -44,7 +44,7 @@ public class TouchBootwebApplication {
 //			e.printStackTrace();
 //		}
 
-		System.exit(0);
+//		System.exit(0);
 	}
 
 

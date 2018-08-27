@@ -32,11 +32,12 @@
 	<mvc:resources mapping="/resources-#{applicationProps['application.version']}/**" location="/, /public-resources/, classpath:/META-INF/public-web-resources/" cache-period="31556926"/>
 	-->          
 		
-	<context:component-scan base-package="cn.touch.web.controller,cn.touch.showcase.controller" use-default-filters="false">
+	<context:component-scan base-package="cn.touch.web.controller,cn.touch.bootweb.controller" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-	<bean id="fastjsonConverts" class="cn.touch.web.mapper.fastjson.MappingFastJsonHttpMessageConverter" />
+	<!--<bean id="fastjsonConverts" class="cn.touch.web.mapper.fastjson.MappingFastJsonHttpMessageConverter" />-->
+	<bean id="fastjsonConverts" class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter" />
 
 	<!-- <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"> -->
 	<mvc:annotation-driven>
