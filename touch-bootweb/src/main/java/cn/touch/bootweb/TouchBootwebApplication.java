@@ -20,7 +20,7 @@ import java.util.concurrent.CountDownLatch;
  * https://www.jianshu.com/p/3c94d7e76998?utm_source=oschina-app
  * https://blog.csdn.net/J3oker/article/details/52556008
  */
-@SpringBootApplication(scanBasePackages = {"cn.touch.bootweb.config"},exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages = {"cn.touch.bootweb.config","cn.touch.bootweb.controller"},exclude = {DataSourceAutoConfiguration.class})
 public class TouchBootwebApplication {
 
 
