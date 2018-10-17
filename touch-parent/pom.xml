@@ -109,7 +109,8 @@
 		<javax-inject.version>1</javax-inject.version>
 
 		<!-- Spring -->
-		<spring-framework.version>4.2.4.RELEASE</spring-framework.version>
+		<!--spring-framework.version>4.2.4.RELEASE</spring-framework.version -->
+		<spring-framework.version>4.2.9.RELEASE</spring-framework.version>
 
 		<!-- ORM : Mybatis, Hibernate / JPA -->
 		<version.mybatis>3.3.0</version.mybatis>
