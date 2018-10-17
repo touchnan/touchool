@@ -150,7 +150,8 @@
 		<netty.version>4.0.33.Final</netty.version>
 
 		<!-- HTTP & HTML -->
-		<httpcomponents.version>4.2.4</httpcomponents.version>
+		<!-- httpcomponents.version>4.2.4</httpcomponents.version -->
+		<httpcomponents.version>4.5.6</httpcomponents.version>
 		<httpasyncclient.version>4.0-beta3</httpasyncclient.version>
 		<jsoup.version>1.7.1</jsoup.version>
 
