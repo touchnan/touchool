@@ -95,7 +95,7 @@ public class TouchEncoder implements Encoder {
     }
 
     /**
-     * @param encoded encoded
+     * @param encoded encoded store string
      * @return encoded bytes
      */
     private byte[] fromEncodedForm(String encoded) {

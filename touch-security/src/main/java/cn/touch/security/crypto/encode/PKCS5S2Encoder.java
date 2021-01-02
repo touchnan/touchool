@@ -16,7 +16,7 @@ public class PKCS5S2Encoder extends TouchEncoder {
     }
 
     /**
-     * @param saltGenerator saltGenerator
+     * @param saltGenerator salt generator
      */
     public PKCS5S2Encoder(SaltGenerator saltGenerator) {
         super("PKCS5S2", new PKCS5S2HashGenerator(), saltGenerator);
