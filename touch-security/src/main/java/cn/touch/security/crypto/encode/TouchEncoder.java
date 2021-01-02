@@ -96,7 +96,7 @@ public class TouchEncoder implements Encoder {
 
     /**
      * @param encoded encoded
-     * @return byte
+     * @return encoded bytes
      */
     private byte[] fromEncodedForm(String encoded) {
         return Base64.decodeBase64(StringUtils.getBytesUtf8(encoded));
