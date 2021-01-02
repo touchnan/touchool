@@ -1,0 +1,12 @@
+package cn.touch.security.crypto;
+
+/**
+ * Jan 3, 2015
+ * 
+ * @author <a href="mailto:88052350@qq.com">chengqiang.han</a>
+ */
+public interface SaltGenerator {
+    byte[] generateSalt(int length);
+    
+    int DEFAULT_LENGTH =16;
+}
