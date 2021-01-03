@@ -1,8 +1,8 @@
-package cn.touch.security.crypto.hash;
+package work.v2m.touch.security.crypto.hash;
 
 import org.bouncycastle.crypto.generators.PKCS5S2ParametersGenerator;
 
-import cn.touch.security.crypto.SaltGenerator;
+import work.v2m.touch.security.crypto.SaltGenerator;
 
 /**
  * Jan 3, 2015

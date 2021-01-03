@@ -1,8 +1,8 @@
-package cn.touch.security.crypto.salt;
+package work.v2m.touch.security.crypto.salt;
 
 import java.util.Random;
 
-import cn.touch.security.crypto.SaltGenerator;
+import work.v2m.touch.security.crypto.SaltGenerator;
 
 /**
  * Jan 3, 2015

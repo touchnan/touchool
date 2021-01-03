@@ -1,12 +1,11 @@
-package cn.touch.security;
+package work.v2m.touch.security;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 
 import java.io.Serializable;
 import java.security.Principal;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 
 
 /**
@@ -39,10 +38,7 @@ public class TouchPrincipal implements Serializable,Principal {
             try {
                 BeanUtils.copyProperties(o,this);
             } catch (Throwable e) {
-                Logger log = LoggerFactory.getLogger(getClass());
-                if (log.isErrorEnabled()) {
-                    log.error("Fail to copy properties!", e);
-                }
+				LoggerFactory.getLogger(getClass()).error("Fail to copy properties!", e);
             }
         }
 	}

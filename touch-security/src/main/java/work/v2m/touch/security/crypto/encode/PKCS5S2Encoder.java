@@ -1,8 +1,8 @@
-package cn.touch.security.crypto.encode;
+package work.v2m.touch.security.crypto.encode;
 
-import cn.touch.security.crypto.SaltGenerator;
-import cn.touch.security.crypto.hash.PKCS5S2HashGenerator;
-import cn.touch.security.crypto.salt.RandomSaltGenerator;
+import work.v2m.touch.security.crypto.hash.PKCS5S2HashGenerator;
+import work.v2m.touch.security.crypto.salt.RandomSaltGenerator;
+import work.v2m.touch.security.crypto.SaltGenerator;
 
 /**
  * Jan 4, 2015

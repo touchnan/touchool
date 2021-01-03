@@ -1,9 +1,9 @@
-package cn.touch.security.crypto.hash;
+package work.v2m.touch.security.crypto.hash;
 
 import org.bouncycastle.crypto.PBEParametersGenerator;
 import org.bouncycastle.crypto.params.KeyParameter;
 
-import cn.touch.security.crypto.HashGenerator;
+import work.v2m.touch.security.crypto.HashGenerator;
 
 /**
  * Jan 3, 2015

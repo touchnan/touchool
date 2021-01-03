@@ -1,4 +1,4 @@
-package cn.touch.security.crypto.encode;
+package work.v2m.touch.security.crypto.encode;
 
 import java.util.Arrays;
 
@@ -7,9 +7,9 @@ import org.apache.commons.codec.binary.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.Validate;
 
-import cn.touch.security.crypto.Encoder;
-import cn.touch.security.crypto.HashGenerator;
-import cn.touch.security.crypto.SaltGenerator;
+import work.v2m.touch.security.crypto.Encoder;
+import work.v2m.touch.security.crypto.HashGenerator;
+import work.v2m.touch.security.crypto.SaltGenerator;
 
 /**
  * Jan 3, 2015

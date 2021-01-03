@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<parent>
-		<groupId>cn.touch</groupId>
+		<groupId>work.v2m.touch</groupId>
 		<artifactId>touchool</artifactId>
 		<version>${touchool.version}</version>
 		<!--

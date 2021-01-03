@@ -1,7 +1,7 @@
-package cn.touch.security;
+package work.v2m.touch.security;
 
-import cn.touch.security.crypto.Encoder;
-import cn.touch.security.crypto.encode.PKCS5S2Encoder;
+import work.v2m.touch.security.crypto.Encoder;
+import work.v2m.touch.security.crypto.encode.PKCS5S2Encoder;
 
 import java.util.*;
 
@@ -22,6 +22,7 @@ public interface TouchCredentialsMatcher {
 //    }
 
     default List<? extends Encoder> encoders (){
+
 //        private List<? extends Encoder> encoders = Arrays.asList(new PKCS5S2Encoder());
         return Collections.singletonList(new PKCS5S2Encoder());
     }
