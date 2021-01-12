@@ -48,8 +48,8 @@ public class CryptoTest {
         claims.setIssuer("cy");
 
 
-//        SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-        SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.RS256);
+        SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+//        SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.RS256);//The RS256 algorithm does not support shared secret keys.
 //        secretKey.
         String token = Jwts.builder().setSubject("h").setClaims(claims).signWith(secretKey).setExpiration(expiresDate).compact();
         System.out.println("token = " + token);
