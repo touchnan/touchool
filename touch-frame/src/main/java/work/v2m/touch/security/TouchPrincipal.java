@@ -19,18 +19,18 @@ public class TouchPrincipal implements Serializable,Principal {
 	 */
 	private static final long serialVersionUID = 8512868579864102029L;
 	private Serializable id;
-	private String loginName;
+	private String principal;
 	private String name;
 
 	@JsonIgnore
-	private transient String passwd;
+	private transient String credential;
 
 	
-	public TouchPrincipal(Serializable id, String loginName, String name, String passwd){
+	public TouchPrincipal(Serializable id, String principal, String name, String credential){
 		this.id = id;
 		this.name = name;
-		this.loginName = loginName;
-		this.passwd = passwd;
+		this.principal = principal;
+		this.credential = credential;
 	}
 	
 	public TouchPrincipal(Object o) {
@@ -47,7 +47,7 @@ public class TouchPrincipal implements Serializable,Principal {
 	 * 
 	 */
 	public void clearSensitivity() {
-		passwd = null;
+		credential = null;
 	}
 
 	/**
@@ -58,10 +58,10 @@ public class TouchPrincipal implements Serializable,Principal {
 	}
 
 	/**
-	 * @return the loginName
+	 * @return
 	 */
-	public String getLoginName() {
-		return loginName;
+	public String getPrincipal() {
+		return principal;
 	}
 
 	/**
@@ -71,11 +71,8 @@ public class TouchPrincipal implements Serializable,Principal {
 		return name;
 	}
 
-	/**
-	 * @return the passwd
-	 */
-	public String getPasswd() {
-		return passwd;
+	public String getCredential() {
+		return credential;
 	}
 
 	/**
@@ -86,10 +83,10 @@ public class TouchPrincipal implements Serializable,Principal {
 	}
 
 	/**
-	 * @param loginName the loginName to set
+	 * @param principal
 	 */
-	public void setLoginName(String loginName) {
-		this.loginName = loginName;
+	public void setPrincipal(String principal) {
+		this.principal = principal;
 	}
 
 	/**
@@ -99,11 +96,7 @@ public class TouchPrincipal implements Serializable,Principal {
 		this.name = name;
 	}
 
-	/**
-	 * @param passwd the passwd to set
-	 */
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+	public void setCredential(String credential) {
+		this.credential = credential;
 	}
-
 }
