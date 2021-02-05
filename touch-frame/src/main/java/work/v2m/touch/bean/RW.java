@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class RW<T> implements Serializable {
     private static final long serialVersionUID = -3453218436408965717L;
 
-    public static final HttpStatus DEFAULT_ERR = HttpStatus.UNAUTHORIZED;
+    public static final HttpStatus DEFAULT_ERR = HttpStatus.BAD_REQUEST;
 
     private int code = HttpStatus.OK.value();
     private String msg = HttpStatus.OK.getReasonPhrase();
@@ -25,6 +25,10 @@ public class RW<T> implements Serializable {
 
     public boolean isSuccess(){
         return HttpStatus.OK.value()==code;
+    }
+
+    public static <T> RW<T> unauthorized() {
+        return RW.withHttpStatus(HttpStatus.UNAUTHORIZED);
     }
 
     public static <T> RW<T> fail() {
@@ -57,6 +61,10 @@ public class RW<T> implements Serializable {
 
     public static <T> RW<T> fail(CodeStatus codeStatus, T data) {
         return createR(codeStatus.code(), codeStatus.message(),data);
+    }
+
+    public static <T> RW<T> success() {
+        return createR(HttpStatus.OK, null);
     }
 
     public static <T> RW<T> success(T data) {
